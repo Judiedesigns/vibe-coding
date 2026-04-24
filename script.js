@@ -254,6 +254,21 @@ function copyEmail() {
 }
 
 
+// ── Mobile: move Spotify widget into top nav ───────────────────────────────
+function syncSpotifyPlacement() {
+  const widget = document.getElementById('spotify-widget');
+  const mobileSlot = document.getElementById('mobile-sp-slot');
+  const footerNav = document.querySelector('.footer-nav');
+  if (!widget || !mobileSlot || !footerNav) return;
+  if (window.innerWidth <= 680) {
+    if (widget.parentElement !== mobileSlot) mobileSlot.appendChild(widget);
+  } else {
+    if (widget.parentElement !== footerNav) footerNav.appendChild(widget);
+  }
+}
+syncSpotifyPlacement();
+window.addEventListener('resize', syncSpotifyPlacement);
+
 // ── Theme toggle ───────────────────────────────────────────────────────────
 function toggleTheme() {
   const isDark = document.body.classList.toggle('dark');

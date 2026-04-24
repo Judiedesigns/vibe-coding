@@ -773,13 +773,15 @@ body.dark .mobile-contact               { color: rgba(240,240,240,0.7); }
   .divider-right       { display: none; }
 
   .sidebar {
+    order: 3;
     padding: 40px 16px 56px;
     overflow: visible;
   }
   .sidebar .nav-links  { display: none; }
 
   .center {
-    padding: 0 16px 56px;
+    order: 1;
+    padding: 40px 16px 56px;
     overflow: visible;
     align-items: flex-start;
   }
@@ -790,6 +792,7 @@ body.dark .mobile-contact               { color: rgba(240,240,240,0.7); }
   .legend-other        { display: none; }
 
   .right-panel {
+    order: 2;
     margin-left: 16px;
     padding: 8px 16px 20px 20px;
     overflow: visible;

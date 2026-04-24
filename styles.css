@@ -578,10 +578,10 @@ html, body {
 
 .spotify-text {
   font-family: 'Inter', sans-serif;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 400;
   color: #82879e;
-  letter-spacing: -0.5px;
+  letter-spacing: 0.2px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

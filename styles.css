@@ -591,7 +591,7 @@ html, body {
 .spotify-text.ticker {
   display: inline-block;
   text-overflow: clip;
-  animation: spTicker 16s linear infinite;
+  animation: spTicker 8s linear infinite;
 }
 
 .spotify-progress-track {

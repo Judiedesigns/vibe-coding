@@ -259,11 +259,11 @@ function copyEmail() {
 // ── Mobile: move Spotify widget into top nav ───────────────────────────────
 function syncSpotifyPlacement() {
   const widget = document.getElementById('spotify-widget');
-  const mobileSlot = document.getElementById('mobile-sp-slot');
+  const mobileFloat = document.getElementById('spotify-float');
   const footerNav = document.querySelector('.footer-nav');
-  if (!widget || !mobileSlot || !footerNav) return;
+  if (!widget || !mobileFloat || !footerNav) return;
   if (window.innerWidth <= 680) {
-    if (widget.parentElement !== mobileSlot) mobileSlot.appendChild(widget);
+    if (widget.parentElement !== mobileFloat) mobileFloat.appendChild(widget);
   } else {
     if (widget.parentElement !== footerNav) footerNav.appendChild(widget);
   }

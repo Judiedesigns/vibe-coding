@@ -686,6 +686,11 @@ body.dark .mobile-header                { background: #111; }
 body.dark .mobile-brand                 { color: rgba(240,240,240,0.7); }
 body.dark .mobile-contact               { color: rgba(240,240,240,0.7); }
 
+/* ── Floating Spotify (mobile only) ─────────── */
+.spotify-float {
+  display: none;
+}
+
 /* ── Mobile header ──────────────────────────── */
 .mobile-header {
   display: none;
@@ -760,6 +765,24 @@ body.dark .mobile-contact               { color: rgba(240,240,240,0.7); }
   html, body           { overflow: auto; height: auto; }
 
   .mobile-header       { display: flex; }
+
+  .spotify-float {
+    display: block;
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 200;
+  }
+  .spotify-float .spotify-widget {
+    box-shadow: 0 4px 24px rgba(0,0,0,0.14);
+    gap: 0;
+    padding: 4px 12px 4px 4px;
+  }
+  .spotify-float .sp-btn {
+    width: 14px;
+    opacity: 1;
+  }
 
   .page {
     grid-template-columns: 1fr;

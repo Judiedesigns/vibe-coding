@@ -684,7 +684,7 @@ body.dark .day.extra                    { background: #3a3830; }
 body.dark .legend-dot.extra             { background: #3a3830; border-color: #5a5245; }
 body.dark .mobile-header                { background: #111; }
 body.dark .mobile-brand                 { color: rgba(240,240,240,0.7); }
-body.dark .mobile-contact               { color: rgba(240,240,240,0.7); }
+body.dark .mobile-nav-item              { color: rgba(240,240,240,0.7); }
 
 /* ── Floating Spotify (mobile only) ─────────── */
 .spotify-float {
@@ -714,15 +714,19 @@ body.dark .mobile-contact               { color: rgba(240,240,240,0.7); }
   text-transform: uppercase;
 }
 
-.mobile-contact {
+.mobile-nav-group {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.mobile-nav-item {
   font-size: 12px;
   font-weight: 400;
   line-height: 24px;
   color: rgba(17,17,17,0.7);
   cursor: pointer;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  text-transform: uppercase;
 }
 
 /* ── Mobile footer nav ──────────────────────── */

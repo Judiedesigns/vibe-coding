@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Florence Eze — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400&family=IBM+Plex+Mono:wght@300;400&family=Inter:wght@300;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div class="divider-left"></div>
+<div class="divider-right"></div>
+<div class="page">
+
+  <!-- ── Left Sidebar ── -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <p class="name">Florence Eze</p>
+      <p class="title">Product Designer / Model Designer</p>
+      <span class="email">JUddblck2@gmail.com</span>
+    </div>
+
+    <p class="bio">I design pixel execution of design projects. I'm a UX Designer transitioning into software engineering driven by curiosity and creativity. I've always been fascinated by how code powers the things we use every day.</p>
+
+    <p class="tagline">My work is idea-led and I like to chase<br>the discomfort of creative problem-solving.</p>
+
+    <p class="currently">I'm currently working on 20 days of vibe coding</p>
+
+    <nav class="nav-links">
+      <a class="nav-link" href="https://contra.com/florence_eze_zq2os5ca/work?r=florence_eze_zq2os5ca" target="_blank">⟶ Contra</a>
+      <a class="nav-link" href="https://www.behance.net/florenceeze1" target="_blank">⟶ Behance</a>
+      <a class="nav-link" href="https://www.linkedin.com/in/florence-eze-07049223a/" target="_blank">⟶ Linkedin</a>
+    </nav>
+  </aside>
+
+  <!-- ── Center: Calendar ── -->
+  <main class="center">
+    <p class="cal-label">Github contributions from March to April 2026</p>
+
+    <div class="calendar" id="calendar"></div>
+
+    <div class="legend">
+      <div class="legend-item">
+        <div class="legend-dot active"></div>
+        <span class="legend-label">Active</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-dot inactive"></div>
+        <span class="legend-label">No Activity</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-dot extra"></div>
+        <span class="legend-label">Other</span>
+      </div>
+    </div>
+  </main>
+
+  <!-- ── Right Panel ── -->
+  <aside class="right-panel" id="right-panel">
+    <div style="display:flex;flex-direction:column;gap:20px;align-items:center;">
+      <img
+        class="project-image"
+        id="panel-image"
+        src="https://www.figma.com/api/mcp/asset/6bf7f4af-25c3-4fcf-923c-a9747cdb6dbf"
+        alt="project preview"
+      />
+      <div class="toggle-switch">
+        <button class="toggle-btn selected" onclick="toggleView(this,'Prototype')">Prototype</button>
+        <button class="toggle-btn" onclick="toggleView(this,'Prompt')">Prompt</button>
+      </div>
+    </div>
+
+    <div class="project-info">
+      <div class="project-title-block">
+        <p class="project-title" id="panel-title">Sticky Nav That Transforms</p>
+        <div class="project-meta">
+          <span>2026</span>
+          <span>·</span>
+          <span id="panel-day">DAY 1</span>
+        </div>
+      </div>
+      <p class="project-desc" id="panel-desc">Navigation that starts transparent over hero, shrinks and blurs on scroll, adds border, logo morphs from wordmark to icon.</p>
+      <button class="live-link-btn" id="panel-link" onclick="openLiveLink()">Live Link</button>
+    </div>
+  </aside>
+
+</div>
+
+<!-- ── Footer ── -->
+<footer class="footer">
+  <nav class="footer-nav">
+    <span class="footer-logo" onclick="window.open('https://mars-portfolio.figma.site/','_blank')" style="cursor:pointer;">Portfolio</span>
+    <span class="footer-about" onclick="copyEmail()" style="cursor:pointer;">Email</span>
+    <div class="spotify-widget" id="spotify-widget">
+      <button class="sp-btn sp-prev" onclick="spPrev()">‹</button>
+      <div class="spotify-art" id="sp-disc" onclick="spToggle()">
+        <img src="https://www.figma.com/api/mcp/asset/3e16a7cd-8064-4012-83d6-f4815831f942" alt="disc" />
+        <div class="spotify-center-dot"></div>
+      </div>
+      <button class="sp-btn sp-next" onclick="spNext()">›</button>
+      <div class="spotify-info">
+        <span class="spotify-text" id="sp-title">click disc to play</span>
+        <div class="spotify-progress-track" onclick="spSeek(event)">
+          <div class="spotify-progress-fill" id="sp-fill"></div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="footer-center"></div>
+  <div class="footer-right">
+    <span class="footer-credit">made by me &amp; Claude</span>
+    <div class="theme-toggle" style="position:static;opacity:0.6;">
+      <span class="theme-label" id="theme-label">Light Mode</span>
+      <div class="toggle-pill" id="theme-pill" onclick="toggleTheme()">
+        <div class="toggle-thumb"></div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+</body>
+</html>

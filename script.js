@@ -133,6 +133,7 @@ function selectDay(num) {
     btn.style.opacity = currentUrl ? '1' : '0.3';
     btn.style.pointerEvents = currentUrl ? 'auto' : 'none';
     panel.style.opacity = '1';
+    if (window.innerWidth <= 680) panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }, 200);
 }
 
@@ -163,6 +164,7 @@ function selectProject(key) {
     btn.style.opacity = currentUrl ? '1' : '0.3';
     btn.style.pointerEvents = currentUrl ? 'auto' : 'none';
     panel.style.opacity = '1';
+    if (window.innerWidth <= 680) panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }, 200);
 }
 

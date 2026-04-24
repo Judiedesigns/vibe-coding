@@ -814,12 +814,14 @@ body.dark .mobile-contact               { color: rgba(240,240,240,0.7); }
   .footer-nav          { display: none; }
   .footer-center       { display: none; }
   .footer-right        { display: none; }
-  .footer-mobile-nav   { display: flex; }
+  .name                { font-weight: 300; }
+  .footer-mobile-nav   { display: flex; gap: 0; }
   .footer-mobile-nav .nav-link {
-    font-size: 14px;
-    line-height: 44px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
     min-height: 44px;
-    display: block;
     letter-spacing: 0.5px;
+    line-height: 1.2;
   }
 }

@@ -169,9 +169,24 @@ function selectProject(key) {
 }
 
 // ── Prototype / Prompt toggle ──────────────────────────────────────────────
-function toggleView(btn) {
+const PROMPT_URL = 'https://v0-ai-build-sprint.vercel.app/';
+
+function toggleView(btn, view) {
   document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('selected'));
   btn.classList.add('selected');
+
+  const linkBtn = document.getElementById('panel-link');
+  if (view === 'Prompt') {
+    linkBtn.textContent = 'View Prompt';
+    linkBtn.style.opacity = '1';
+    linkBtn.style.pointerEvents = 'auto';
+    linkBtn.onclick = () => window.open(PROMPT_URL, '_blank');
+  } else {
+    linkBtn.textContent = 'Live Link';
+    linkBtn.onclick = openLiveLink;
+    linkBtn.style.opacity = currentUrl ? '1' : '0.3';
+    linkBtn.style.pointerEvents = currentUrl ? 'auto' : 'none';
+  }
 }
 
 

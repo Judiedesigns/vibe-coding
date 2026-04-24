@@ -815,4 +815,11 @@ body.dark .mobile-contact               { color: rgba(240,240,240,0.7); }
   .footer-center       { display: none; }
   .footer-right        { display: none; }
   .footer-mobile-nav   { display: flex; }
+  .footer-mobile-nav .nav-link {
+    font-size: 14px;
+    line-height: 44px;
+    min-height: 44px;
+    display: block;
+    letter-spacing: 0.5px;
+  }
 }

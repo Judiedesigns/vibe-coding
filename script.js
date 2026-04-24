@@ -253,24 +253,6 @@ function copyEmail() {
   });
 }
 
-// ── Custom cursor ──────────────────────────────────────────────────────────
-(function () {
-  const dot = document.getElementById('cursor-dot');
-  const hoverSelectors = 'a, button, [onclick], .day.active, .day.extra, .toggle-btn, .toggle-pill, .spotify-art, .spotify-progress-track, .live-link-btn';
-
-  document.addEventListener('mousemove', e => {
-    dot.style.left = e.clientX + 'px';
-    dot.style.top  = e.clientY + 'px';
-  });
-
-  document.addEventListener('mouseover', e => {
-    if (e.target.closest(hoverSelectors)) dot.classList.add('hovered');
-  });
-
-  document.addEventListener('mouseout', e => {
-    if (e.target.closest(hoverSelectors)) dot.classList.remove('hovered');
-  });
-})();
 
 // ── Theme toggle ───────────────────────────────────────────────────────────
 function toggleTheme() {

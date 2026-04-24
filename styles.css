@@ -721,7 +721,7 @@ body.dark .mobile-nav-item              { color: rgba(240,240,240,0.7); }
 }
 
 .mobile-nav-item {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 400;
   line-height: 24px;
   color: rgba(17,17,17,0.7);

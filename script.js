@@ -90,12 +90,29 @@ weeks.forEach((week, rowIdx) => {
   cal.appendChild(row);
 });
 
+// ── Click sound ────────────────────────────────────────────────────────────
+let _audioCtx = null;
+function playTick() {
+  if (!_audioCtx) _audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  const osc  = _audioCtx.createOscillator();
+  const gain = _audioCtx.createGain();
+  osc.connect(gain);
+  gain.connect(_audioCtx.destination);
+  osc.type = 'sine';
+  osc.frequency.value = 600;
+  gain.gain.setValueAtTime(0.07, _audioCtx.currentTime);
+  gain.gain.exponentialRampToValueAtTime(0.001, _audioCtx.currentTime + 0.09);
+  osc.start(_audioCtx.currentTime);
+  osc.stop(_audioCtx.currentTime + 0.09);
+}
+
 // ── Day click → update right panel ────────────────────────────────────────
 let currentUrl = '';
 
 function selectDay(num) {
   const p = projects[num];
   if (!p) return;
+  playTick();
 
   document.querySelectorAll('.day.active, .day.extra').forEach(d => d.classList.remove('selected-day'));
   const clicked = document.querySelector(`.day[data-day="${num}"]`);
@@ -126,6 +143,7 @@ function openLiveLink() {
 function selectProject(key) {
   const p = extraProjects[key];
   if (!p) return;
+  playTick();
 
   document.querySelectorAll('.day.active, .day.extra').forEach(d => d.classList.remove('selected-day'));
   const clicked = document.querySelector(`.day[data-project="${key}"]`);
@@ -234,6 +252,25 @@ function copyEmail() {
     setTimeout(() => { el.textContent = orig; }, 2000);
   });
 }
+
+// ── Custom cursor ──────────────────────────────────────────────────────────
+(function () {
+  const dot = document.getElementById('cursor-dot');
+  const hoverSelectors = 'a, button, [onclick], .day.active, .day.extra, .toggle-btn, .toggle-pill, .spotify-art, .spotify-progress-track, .live-link-btn';
+
+  document.addEventListener('mousemove', e => {
+    dot.style.left = e.clientX + 'px';
+    dot.style.top  = e.clientY + 'px';
+  });
+
+  document.addEventListener('mouseover', e => {
+    if (e.target.closest(hoverSelectors)) dot.classList.add('hovered');
+  });
+
+  document.addEventListener('mouseout', e => {
+    if (e.target.closest(hoverSelectors)) dot.classList.remove('hovered');
+  });
+})();
 
 // ── Theme toggle ───────────────────────────────────────────────────────────
 function toggleTheme() {

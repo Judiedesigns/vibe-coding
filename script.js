@@ -239,7 +239,8 @@ function spSetPlaying(val) {
 // idle state — ticker until first play
 (function () {
   const titleEl = document.getElementById('sp-title');
-  titleEl.textContent = '🎵 Paused click to start playing :)';
+  const idleText = '🎵 Paused click to start playing :)';
+  titleEl.textContent = idleText + '\u00a0\u00a0\u00a0\u00a0\u00a0' + idleText;
   titleEl.classList.add('ticker');
   spIdx = 0;
   spAudio.src = songs[0].src;

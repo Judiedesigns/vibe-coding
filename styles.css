@@ -6,28 +6,6 @@ a, button, [onclick], .day.active, .day.extra, .toggle-btn,
 .nav-link, .footer-logo, .footer-about, .sp-btn, .spotify-art,
 .spotify-progress-track, .live-link-btn, .toggle-pill { cursor: none; }
 
-#cursor-dot {
-  position: fixed;
-  top: 0; left: 0;
-  width: 6px; height: 6px;
-  background: var(--base);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%, -50%);
-  transition: width 0.18s ease, height 0.18s ease,
-              background 0.18s ease, border 0.18s ease,
-              opacity 0.18s ease;
-  will-change: transform;
-}
-
-#cursor-dot.hovered {
-  width: 28px; height: 28px;
-  background: transparent;
-  border: 1.5px solid var(--base);
-  opacity: 0.5;
-}
-
 :root {
   --green: #58d164;
   --inactive: #f5f5f5;

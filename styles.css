@@ -817,10 +817,10 @@ body.dark .mobile-contact               { color: rgba(240,240,240,0.7); }
   .name                { font-weight: 300; }
   .footer-mobile-nav   { display: flex; gap: 0; }
   .footer-mobile-nav .nav-link {
-    font-size: 12px;
+    font-size: 11px;
     display: flex;
     align-items: center;
-    min-height: 44px;
+    min-height: 40px;
     letter-spacing: 0.5px;
     line-height: 1.2;
   }

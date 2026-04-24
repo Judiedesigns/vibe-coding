@@ -253,92 +253,23 @@ function copyEmail() {
   });
 }
 
-// ── Custom cursor — rainbow trail + thumb on projects ──────────────────────
+// ── Custom cursor ──────────────────────────────────────────────────────────
 (function () {
-  const TRAIL  = 9;
-  const COLORS = ['#f87171','#fbbf24','#34d399','#60a5fa','#a78bfa',
-                  '#f87171','#fbbf24','#34d399','#60a5fa'];
-
-  // Build trail dots
-  const dots = Array.from({length: TRAIL}, (_, i) => {
-    const el  = document.createElement('div');
-    const sz  = Math.max(2, 6 - i * 0.45);
-    Object.assign(el.style, {
-      position:      'fixed',
-      width:         sz + 'px',
-      height:        sz + 'px',
-      borderRadius:  '50%',
-      background:    COLORS[i],
-      opacity:       (1 - i / TRAIL * 0.75).toFixed(2),
-      pointerEvents: 'none',
-      zIndex:        '9999',
-      transform:     'translate(-50%,-50%)',
-      left:          '-200px',
-      top:           '-200px',
-    });
-    document.body.appendChild(el);
-    return el;
-  });
-
-  // Thumb pointer shown over clickable project days
-  const hand = document.createElement('div');
-  Object.assign(hand.style, {
-    position:      'fixed',
-    fontSize:      '20px',
-    lineHeight:    '1',
-    pointerEvents: 'none',
-    zIndex:        '10000',
-    transform:     'translate(-6px, -20px)',
-    display:       'none',
-    left:          '-200px',
-    top:           '-200px',
-  });
-  hand.textContent = '👆';
-  document.body.appendChild(hand);
-
-  const positions  = Array.from({length: TRAIL}, () => ({x: -200, y: -200}));
-  let mx = -200, my = -200, overProject = false;
+  const dot = document.getElementById('cursor-dot');
+  const hoverSelectors = 'a, button, [onclick], .day.active, .day.extra, .toggle-btn, .toggle-pill, .spotify-art, .spotify-progress-track, .live-link-btn';
 
   document.addEventListener('mousemove', e => {
-    mx = e.clientX; my = e.clientY;
-    hand.style.left = mx + 'px';
-    hand.style.top  = my + 'px';
+    dot.style.left = e.clientX + 'px';
+    dot.style.top  = e.clientY + 'px';
   });
 
-  const PROJ_SEL = '.day.active, .day.extra';
-
   document.addEventListener('mouseover', e => {
-    const entering = !!e.target.closest(PROJ_SEL);
-    if (entering && !overProject) {
-      overProject = true;
-      hand.style.display = 'block';
-      dots.forEach(d => { d.style.opacity = '0'; });
-    }
+    if (e.target.closest(hoverSelectors)) dot.classList.add('hovered');
   });
 
   document.addEventListener('mouseout', e => {
-    if (overProject && (!e.relatedTarget || !e.relatedTarget.closest(PROJ_SEL))) {
-      overProject = false;
-      hand.style.display = 'none';
-      dots.forEach((d, i) => { d.style.opacity = (1 - i / TRAIL * 0.75).toFixed(2); });
-    }
+    if (e.target.closest(hoverSelectors)) dot.classList.remove('hovered');
   });
-
-  (function animate() {
-    positions[0].x += (mx - positions[0].x) * 0.72;
-    positions[0].y += (my - positions[0].y) * 0.72;
-    for (let i = 1; i < TRAIL; i++) {
-      positions[i].x += (positions[i-1].x - positions[i].x) * 0.42;
-      positions[i].y += (positions[i-1].y - positions[i].y) * 0.42;
-    }
-    if (!overProject) {
-      dots.forEach((d, i) => {
-        d.style.left = positions[i].x + 'px';
-        d.style.top  = positions[i].y + 'px';
-      });
-    }
-    requestAnimationFrame(animate);
-  })();
 })();
 
 // ── Theme toggle ───────────────────────────────────────────────────────────

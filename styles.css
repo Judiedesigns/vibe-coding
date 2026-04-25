@@ -915,7 +915,11 @@ body.dark .mobile-theme-icon .icon-moon { display: block; }
   .footer-nav          { display: none; }
   .footer-center       { display: none; }
   .footer-right        { display: none; }
-  .name                { font-weight: 300; }
+  .name                { font-weight: 500; font-size: 15px; }
+  .title               { font-size: 11px; }
+  .email               { font-size: 11px; }
+  .bio                 { font-size: 10px; }
+  .currently           { font-size: 10px; }
   .footer-mobile-nav   { display: flex; gap: 0; }
   .footer-mobile-nav .nav-link {
     font-size: 11px;

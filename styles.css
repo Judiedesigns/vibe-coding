@@ -75,6 +75,8 @@ html, body {
   line-height: 16px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  color: transparent;
+  text-decoration: none;
   background: linear-gradient(90deg, var(--muted) 0%, var(--muted) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -84,9 +86,11 @@ html, body {
 }
 
 .email:hover {
-  background: linear-gradient(90deg, #5c5c5c 0%, #a78bfa 20%, #60a5fa 30%, #34d399 40%, #fbbf24 50%, #f87171 60%, #5c5c5c 70%);
+  background: linear-gradient(90deg, #5c5c5c, #a78bfa, #60a5fa, #34d399, #fbbf24, #f87171, #5c5c5c, #a78bfa, #60a5fa);
+  background-size: 300% 100%;
   -webkit-background-clip: text;
   background-clip: text;
+  animation: rainbowSweep 3s ease infinite;
 }
 
 .bio {
@@ -461,11 +465,13 @@ html, body {
   font-weight: 400;
   line-height: 24px;
   cursor: pointer;
+  color: transparent;
   background: linear-gradient(90deg, rgba(17,17,17,0.7) 0%, rgba(17,17,17,0.7) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   transition: background 0.3s ease;
+  text-decoration: none;
 }
 
 .footer-about:hover {

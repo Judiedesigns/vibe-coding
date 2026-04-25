@@ -116,10 +116,12 @@ html, body {
 
 /* ── Color deck (footer) ────────────────────────── */
 .color-deck {
-  position: relative;
+  position: fixed;
+  right: 0;
+  bottom: 22px;
   width: 36px;
   height: 36px;
-  flex-shrink: 0;
+  z-index: 100;
 }
 
 .color-chip {

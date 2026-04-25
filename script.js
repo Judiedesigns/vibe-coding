@@ -287,34 +287,9 @@ function syncSpotifyPlacement() {
 syncSpotifyPlacement();
 window.addEventListener('resize', syncSpotifyPlacement);
 
-// ── Color deck switcher ────────────────────────────────────────────────────
-const PALETTE = [
-  { bg: '#ffffff', theme: 'light' },
-  { bg: '#dce8f5', theme: 'light' },
-  { bg: '#111111', theme: 'dark'  },
-  { bg: '#e8e4f5', theme: 'light' },
-];
-let activeBg = '#ffffff';
-
-function applyBg(color) {
-  activeBg = color.bg;
-  document.body.classList.toggle('dark', color.theme === 'dark');
-  document.documentElement.style.setProperty('--bg', color.bg);
-  document.body.style.background = color.bg;
-  document.querySelector('.footer').style.background = color.bg;
-  renderDeck();
+// ── Theme toggle ───────────────────────────────────────────────────────────
+function toggleTheme() {
+  const isDark = document.body.classList.toggle('dark');
+  document.getElementById('theme-label').textContent = isDark ? 'Dark Mode' : 'Light Mode';
+  document.getElementById('theme-pill').classList.toggle('dark-mode', isDark);
 }
-
-function renderDeck() {
-  const deck = document.getElementById('color-deck');
-  deck.innerHTML = '';
-  PALETTE.filter(c => c.bg !== activeBg).forEach(color => {
-    const chip = document.createElement('div');
-    chip.className = 'color-chip';
-    chip.style.background = color.bg;
-    chip.addEventListener('click', () => applyBg(color));
-    deck.appendChild(chip);
-  });
-}
-
-renderDeck();

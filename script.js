@@ -287,21 +287,17 @@ function syncSpotifyPlacement() {
 syncSpotifyPlacement();
 window.addEventListener('resize', syncSpotifyPlacement);
 
-// ── Color stack switcher ───────────────────────────────────────────────────
-document.querySelectorAll('.color-card').forEach(card => {
-  card.addEventListener('click', () => {
-    const bg = card.dataset.bg;
+// ── Color deck switcher ────────────────────────────────────────────────────
+document.querySelectorAll('.color-chip').forEach(chip => {
+  chip.addEventListener('click', () => {
+    const bg = chip.dataset.bg;
+    const isDark = chip.dataset.theme === 'dark';
+    document.body.classList.toggle('dark', isDark);
     document.documentElement.style.setProperty('--bg', bg);
     document.body.style.background = bg;
-    document.querySelectorAll('.color-card').forEach(c => c.classList.remove('active'));
-    card.classList.add('active');
+    document.querySelector('.footer').style.background = bg;
+    document.querySelectorAll('.color-chip').forEach(c => c.classList.remove('active'));
+    chip.classList.add('active');
   });
 });
-document.querySelector('.color-card').classList.add('active');
-
-// ── Theme toggle ───────────────────────────────────────────────────────────
-function toggleTheme() {
-  const isDark = document.body.classList.toggle('dark');
-  document.getElementById('theme-label').textContent = isDark ? 'Dark Mode' : 'Light Mode';
-  document.getElementById('theme-pill').classList.toggle('dark-mode', isDark);
-}
+document.querySelector('.color-chip').classList.add('active');

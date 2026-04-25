@@ -39,7 +39,7 @@ const weeks = [
   ['a9','a10','i11','i12','a13','a14','a15'],
   ['i16','a17','i18','a19','a20','a21','a22'],
   ['i23','a24','a25','a26','i27','a28','a29'],
-  ['a29','a31','i1','i2','i3','i4','i5'],
+  ['i30','a31','i1','i2','i3','i4','i5'],
   ['e1','e2','e3','','','',''],
 ];
 
@@ -57,8 +57,15 @@ weeks.forEach((week, rowIdx) => {
     } else if (cell.startsWith('e')) {
       const key = cell;
       const ep = extraProjects[key];
-      d.className = 'day extra';
-      if (ep) {
+      if (!ep || !ep.image) {
+        d.className = 'day empty';
+      } else {
+        d.className = 'day extra';
+        if (ep.image) {
+          d.style.backgroundImage = `linear-gradient(rgba(255,255,255,0.55), rgba(255,255,255,0.55)), url('${ep.image}')`;
+          d.style.backgroundSize = 'cover';
+          d.style.backgroundPosition = 'center';
+        }
         const tip = document.createElement('div');
         tip.className = 'day-tooltip';
         tip.textContent = ep.title;
@@ -107,12 +114,14 @@ function playTick() {
 }
 
 // ── Day click → update right panel ────────────────────────────────────────
+document.querySelector('.toggle-switch').style.display = 'none';
+
 let currentUrl = '';
 
-function selectDay(num) {
+function selectDay(num, silent = false) {
   const p = projects[num];
   if (!p) return;
-  playTick();
+  if (!silent) playTick();
 
   document.querySelectorAll('.day.active, .day.extra').forEach(d => d.classList.remove('selected-day'));
   const clicked = document.querySelector(`.day[data-day="${num}"]`);
@@ -122,6 +131,7 @@ function selectDay(num) {
   panel.style.opacity = '0';
 
   setTimeout(() => {
+    document.querySelector('.toggle-switch').style.display = '';
     document.getElementById('panel-title').textContent = p.title;
     document.getElementById('panel-day').textContent = `DAY ${p.day}`;
     document.getElementById('panel-desc').textContent = p.desc || '';
@@ -130,6 +140,8 @@ function selectDay(num) {
     else { img.style.display = 'none'; }
     currentUrl = p.url || '';
     const btn = document.getElementById('panel-link');
+    btn.textContent = 'Live Link';
+    btn.onclick = openLiveLink;
     btn.style.opacity = currentUrl ? '1' : '0.3';
     btn.style.pointerEvents = currentUrl ? 'auto' : 'none';
     panel.style.opacity = '1';
@@ -154,13 +166,17 @@ function selectProject(key) {
   panel.style.opacity = '0';
 
   setTimeout(() => {
+    document.querySelector('.toggle-switch').style.display = 'none';
     document.getElementById('panel-title').textContent = p.title;
     document.getElementById('panel-day').textContent = 'SIDE PROJECT';
+    document.getElementById('panel-desc').textContent = p.desc || '';
     const img = document.getElementById('panel-image');
     if (p.image) { img.src = p.image; img.style.display = ''; }
     else { img.style.display = 'none'; }
     currentUrl = p.url || '';
     const btn = document.getElementById('panel-link');
+    btn.textContent = 'Live Link';
+    btn.onclick = openLiveLink;
     btn.style.opacity = currentUrl ? '1' : '0.3';
     btn.style.pointerEvents = currentUrl ? 'auto' : 'none';
     panel.style.opacity = '1';
@@ -314,6 +330,27 @@ function playToggleSound(isDark) {
 function toggleTheme() {
   const isDark = document.body.classList.toggle('dark');
   document.getElementById('theme-label').textContent = isDark ? 'Dark Mode' : 'Light Mode';
-  document.getElementById('theme-pill').classList.toggle('dark-mode', isDark);
+  document.querySelectorAll('.toggle-pill').forEach(p => p.classList.toggle('dark-mode', isDark));
   playToggleSound(isDark);
 }
+
+// ── Live Link ripple ───────────────────────────────────────────────────────
+document.getElementById('panel-link').addEventListener('click', function(e) {
+  const btn = this;
+  const ripple = document.createElement('span');
+  const rect = btn.getBoundingClientRect();
+  const size = Math.max(rect.width, rect.height);
+  ripple.style.cssText = `
+    position:absolute;width:${size}px;height:${size}px;
+    left:${e.clientX - rect.left - size / 2}px;
+    top:${e.clientY - rect.top - size / 2}px;
+    background:rgba(0,0,0,0.12);border-radius:50%;
+    transform:scale(0);animation:ripple 0.5s ease-out forwards;
+    pointer-events:none;
+  `;
+  btn.appendChild(ripple);
+  ripple.addEventListener('animationend', () => ripple.remove());
+});
+
+// ── Auto-select Day 1 on load ──────────────────────────────────────────────
+setTimeout(() => selectDay(6, true), 600);

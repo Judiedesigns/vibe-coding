@@ -141,6 +141,28 @@ html, body {
 .color-chip:hover { filter: brightness(0.82); }
 .color-chip.active { outline: 2px solid rgba(0,0,0,0.4); outline-offset: 1px; }
 
+.color-deck-label {
+  position: absolute;
+  right: calc(100% + 8px);
+  top: 50%;
+  transform: translateY(-50%);
+  background: #3a3a3a;
+  color: #f0f0f0;
+  font-family: 'Geist Mono', monospace;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 999px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.color-deck:hover .color-deck-label { opacity: 1; }
+
 .nav-links {
   border-top: 1px dashed var(--border);
   padding-top: 8px;

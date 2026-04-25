@@ -16,7 +16,7 @@
   <span class="mobile-brand">Florence</span>
   <div class="mobile-nav-group">
     <span class="mobile-nav-item" onclick="document.querySelector('.sidebar').scrollIntoView({behavior:'smooth'})">About</span>
-    <span class="mobile-nav-item" onclick="copyEmail()">Contact</span>
+    <span class="mobile-nav-item" onclick="document.querySelector('.footer').scrollIntoView({behavior:'smooth'})">Contact</span>
   </div>
 </header>
 
@@ -102,7 +102,7 @@
 <footer class="footer">
   <nav class="footer-nav">
     <span class="footer-logo" onclick="window.open('https://mars-portfolio.figma.site/','_blank')" style="cursor:pointer;">Portfolio</span>
-    <span class="footer-about" onclick="copyEmail()" style="cursor:pointer;">Email</span>
+    <a class="footer-about" href="mailto:juddblck2@gmail.com" style="cursor:pointer;text-decoration:none;">Email</a>
     <div class="spotify-widget" id="spotify-widget">
       <button class="sp-btn sp-prev" onclick="spPrev()">‹</button>
       <div class="spotify-art" id="sp-disc" onclick="spToggle()">
@@ -120,7 +120,7 @@
   </nav>
   <div class="footer-mobile-nav">
     <a class="nav-link" href="https://contra.com/florence_eze_zq2os5ca/work?r=florence_eze_zq2os5ca" target="_blank">⟶ Contra</a>
-    <span class="nav-link" onclick="copyEmail()" style="cursor:pointer;">⟶ Email</span>
+    <a class="nav-link" href="mailto:juddblck2@gmail.com" style="cursor:pointer;">⟶ Email</a>
     <a class="nav-link" href="https://www.behance.net/florenceeze1" target="_blank">⟶ Behance</a>
     <a class="nav-link" href="https://www.linkedin.com/in/florence-eze-07049223a/" target="_blank">⟶ Linkedin</a>
   </div>

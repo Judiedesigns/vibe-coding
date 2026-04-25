@@ -288,8 +288,24 @@ syncSpotifyPlacement();
 window.addEventListener('resize', syncSpotifyPlacement);
 
 // ── Theme toggle ───────────────────────────────────────────────────────────
+function playToggleSound(isDark) {
+  const ctx = new (window.AudioContext || window.webkitAudioContext)();
+  const osc = ctx.createOscillator();
+  const gain = ctx.createGain();
+  osc.connect(gain);
+  gain.connect(ctx.destination);
+  osc.type = 'sine';
+  osc.frequency.setValueAtTime(isDark ? 520 : 320, ctx.currentTime);
+  osc.frequency.exponentialRampToValueAtTime(isDark ? 260 : 640, ctx.currentTime + 0.12);
+  gain.gain.setValueAtTime(0.18, ctx.currentTime);
+  gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.18);
+  osc.start(ctx.currentTime);
+  osc.stop(ctx.currentTime + 0.18);
+}
+
 function toggleTheme() {
   const isDark = document.body.classList.toggle('dark');
   document.getElementById('theme-label').textContent = isDark ? 'Dark Mode' : 'Light Mode';
   document.getElementById('theme-pill').classList.toggle('dark-mode', isDark);
+  playToggleSound(isDark);
 }

@@ -660,6 +660,7 @@ body.dark {
 }
 
 body.dark .footer                       { background: #111; }
+body.dark .toggle-btn                   { color: #f0f0f0; }
 body.dark .toggle-btn.selected          { background: #333; color: #f0f0f0; }
 body.dark .toggle-switch                { background: #222; }
 body.dark .live-link-btn                { background: #222; color: #f0f0f0; }

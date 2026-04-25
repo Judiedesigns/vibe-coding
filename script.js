@@ -101,16 +101,18 @@ weeks.forEach((week, rowIdx) => {
 let _audioCtx = null;
 function playTick() {
   if (!_audioCtx) _audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-  const osc  = _audioCtx.createOscillator();
-  const gain = _audioCtx.createGain();
-  osc.connect(gain);
-  gain.connect(_audioCtx.destination);
-  osc.type = 'sine';
-  osc.frequency.value = 600;
-  gain.gain.setValueAtTime(0.07, _audioCtx.currentTime);
-  gain.gain.exponentialRampToValueAtTime(0.001, _audioCtx.currentTime + 0.09);
-  osc.start(_audioCtx.currentTime);
-  osc.stop(_audioCtx.currentTime + 0.09);
+  _audioCtx.resume().then(() => {
+    const osc  = _audioCtx.createOscillator();
+    const gain = _audioCtx.createGain();
+    osc.connect(gain);
+    gain.connect(_audioCtx.destination);
+    osc.type = 'sine';
+    osc.frequency.value = 600;
+    gain.gain.setValueAtTime(0.07, _audioCtx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, _audioCtx.currentTime + 0.09);
+    osc.start(_audioCtx.currentTime);
+    osc.stop(_audioCtx.currentTime + 0.09);
+  });
 }
 
 // ── Day click → update right panel ────────────────────────────────────────
@@ -246,7 +248,13 @@ function spLoad(idx, autoplay = false) {
 function spToggle() {
   if (!spAudio.src) { spLoad(spIdx, true); return; }
   if (spPlaying) { spAudio.pause(); spSetPlaying(false); }
-  else           { spAudio.play();  spSetPlaying(true);  }
+  else {
+    const titleEl = document.getElementById('sp-title');
+    titleEl.textContent = songs[spIdx].title;
+    titleEl.classList.remove('ticker');
+    spAudio.play();
+    spSetPlaying(true);
+  }
 }
 
 function spNext() { spLoad(spIdx + 1, spPlaying); }
@@ -314,17 +322,19 @@ window.addEventListener('resize', syncSpotifyPlacement);
 // ── Theme toggle ───────────────────────────────────────────────────────────
 function playToggleSound(isDark) {
   const ctx = new (window.AudioContext || window.webkitAudioContext)();
-  const osc = ctx.createOscillator();
-  const gain = ctx.createGain();
-  osc.connect(gain);
-  gain.connect(ctx.destination);
-  osc.type = 'sine';
-  osc.frequency.setValueAtTime(isDark ? 520 : 320, ctx.currentTime);
-  osc.frequency.exponentialRampToValueAtTime(isDark ? 260 : 640, ctx.currentTime + 0.12);
-  gain.gain.setValueAtTime(0.18, ctx.currentTime);
-  gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.18);
-  osc.start(ctx.currentTime);
-  osc.stop(ctx.currentTime + 0.18);
+  ctx.resume().then(() => {
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(isDark ? 520 : 320, ctx.currentTime);
+    osc.frequency.exponentialRampToValueAtTime(isDark ? 260 : 640, ctx.currentTime + 0.12);
+    gain.gain.setValueAtTime(0.18, ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.18);
+    osc.start(ctx.currentTime);
+    osc.stop(ctx.currentTime + 0.18);
+  });
 }
 
 function toggleTheme() {

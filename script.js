@@ -287,6 +287,18 @@ function syncSpotifyPlacement() {
 syncSpotifyPlacement();
 window.addEventListener('resize', syncSpotifyPlacement);
 
+// ── Color stack switcher ───────────────────────────────────────────────────
+document.querySelectorAll('.color-card').forEach(card => {
+  card.addEventListener('click', () => {
+    const bg = card.dataset.bg;
+    document.documentElement.style.setProperty('--bg', bg);
+    document.body.style.background = bg;
+    document.querySelectorAll('.color-card').forEach(c => c.classList.remove('active'));
+    card.classList.add('active');
+  });
+});
+document.querySelector('.color-card').classList.add('active');
+
 // ── Theme toggle ───────────────────────────────────────────────────────────
 function toggleTheme() {
   const isDark = document.body.classList.toggle('dark');

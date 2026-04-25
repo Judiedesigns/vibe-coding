@@ -408,7 +408,7 @@ html, body {
 
 .footer-nav {
   display: flex;
-  gap: 20px;
+  justify-content: space-between;
   align-items: center;
   padding: 0 26px;
 }
@@ -466,7 +466,7 @@ html, body {
   line-height: 24px;
   cursor: pointer;
   color: transparent;
-  background: linear-gradient(90deg, rgba(17,17,17,0.7) 0%, rgba(17,17,17,0.7) 100%);
+  background: linear-gradient(90deg, #111 0%, #111 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

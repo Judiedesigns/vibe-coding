@@ -288,16 +288,33 @@ syncSpotifyPlacement();
 window.addEventListener('resize', syncSpotifyPlacement);
 
 // ── Color deck switcher ────────────────────────────────────────────────────
-document.querySelectorAll('.color-chip').forEach(chip => {
-  chip.addEventListener('click', () => {
-    const bg = chip.dataset.bg;
-    const isDark = chip.dataset.theme === 'dark';
-    document.body.classList.toggle('dark', isDark);
-    document.documentElement.style.setProperty('--bg', bg);
-    document.body.style.background = bg;
-    document.querySelector('.footer').style.background = bg;
-    document.querySelectorAll('.color-chip').forEach(c => c.classList.remove('active'));
-    chip.classList.add('active');
+const PALETTE = [
+  { bg: '#ffffff', theme: 'light' },
+  { bg: '#dce8f5', theme: 'light' },
+  { bg: '#111111', theme: 'dark'  },
+  { bg: '#e8e4f5', theme: 'light' },
+];
+let activeBg = '#ffffff';
+
+function applyBg(color) {
+  activeBg = color.bg;
+  document.body.classList.toggle('dark', color.theme === 'dark');
+  document.documentElement.style.setProperty('--bg', color.bg);
+  document.body.style.background = color.bg;
+  document.querySelector('.footer').style.background = color.bg;
+  renderDeck();
+}
+
+function renderDeck() {
+  const deck = document.getElementById('color-deck');
+  deck.innerHTML = '';
+  PALETTE.filter(c => c.bg !== activeBg).forEach(color => {
+    const chip = document.createElement('div');
+    chip.className = 'color-chip';
+    chip.style.background = color.bg;
+    chip.addEventListener('click', () => applyBg(color));
+    deck.appendChild(chip);
   });
-});
-document.querySelector('.color-chip').classList.add('active');
+}
+
+renderDeck();

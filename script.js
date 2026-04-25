@@ -271,6 +271,14 @@ function copyEmail() {
   });
 }
 
+function copyEmailSidebar(el) {
+  navigator.clipboard.writeText('juddblck2@gmail.com').then(() => {
+    const orig = el.textContent;
+    el.textContent = 'copied!';
+    setTimeout(() => { el.textContent = orig; }, 2000);
+  });
+}
+
 
 // ── Mobile: move Spotify widget into top nav ───────────────────────────────
 function syncSpotifyPlacement() {

@@ -385,10 +385,12 @@ body.dark .panel-empty-text { color: #555; }
 .project-image {
   width: 100%;
   height: 320px;
+  min-height: 320px;
   border-radius: 8px;
-  object-fit: cover;
+  overflow: hidden;
   display: block;
   background: var(--inactive);
+  flex-shrink: 0;
 }
 
 @keyframes shimmer {
@@ -955,7 +957,7 @@ body.dark .mobile-theme-icon .icon-moon { display: block; }
     border-left: 1px dashed var(--border);
     border-top: none;
   }
-  .project-image       { height: 220px; object-fit: cover; }
+  .project-image       { height: 220px; min-height: 220px; }
   .project-desc        { width: 100%; }
   .toggle-switch       { width: 100%; }
   .toggle-btn          { flex: 1; }

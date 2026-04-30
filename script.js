@@ -156,28 +156,32 @@ function selectDay(num, silent = false) {
 
   setTimeout(() => {
     document.getElementById('panel-empty').style.display = 'none';
-    document.getElementById('panel-content').style.display = '';
+    document.getElementById('panel-content').style.display = 'flex';
     document.querySelector('.toggle-switch').style.display = '';
     document.getElementById('panel-title').textContent = p.title;
     document.getElementById('panel-day').textContent = `DAY ${p.day}`;
     document.getElementById('panel-desc').textContent = p.desc || '';
 
     const mediaBox = document.getElementById('panel-media');
+    const mediaH = mediaBox ? mediaBox.offsetHeight || 320 : 320;
     if (mediaBox) {
       mediaBox.innerHTML = '';
       mediaBox.classList.add('media-loading');
       if (p.image && p.image.endsWith('.mp4')) {
         const v = document.createElement('video');
-        v.src = p.image;
         v.autoplay = true; v.muted = true; v.loop = true; v.playsInline = true;
-        v.style.cssText = 'width:100%;height:100%;object-fit:cover;display:block;';
         v.oncanplay = () => mediaBox.classList.remove('media-loading');
+        v.onerror = () => mediaBox.classList.remove('media-loading');
+        v.style.cssText = `width:100%;height:${mediaH}px;object-fit:cover;display:block;border-radius:8px;`;
+        v.src = p.image;
         mediaBox.appendChild(v);
       } else if (p.image) {
         const i = document.createElement('img');
-        i.src = p.image; i.alt = p.title;
-        i.style.cssText = 'width:100%;height:100%;object-fit:cover;display:block;';
+        i.alt = p.title;
         i.onload = () => mediaBox.classList.remove('media-loading');
+        i.onerror = () => mediaBox.classList.remove('media-loading');
+        i.style.cssText = `width:100%;height:${mediaH}px;object-fit:cover;display:block;border-radius:8px;`;
+        i.src = p.image;
         mediaBox.appendChild(i);
       }
     }

@@ -45,19 +45,10 @@ body {
 .divider-left  { left: 380px; }
 .divider-right { right: 380px; }
 
-/* ── Spotify fixed anchor (above center column) ── */
-.spotify-anchor {
-  position: fixed;
-  top: 20px;
-  right: 390px;
-  z-index: 200;
-}
-
 /* ── Left Sidebar ───────────────────────────── */
 .sidebar {
   padding: 52px 26px 80px 26px;
   display: flex;
-  flex-col: column;
   flex-direction: column;
   gap: 22px;
   overflow-y: auto;
@@ -169,7 +160,9 @@ body {
   font-family: 'Geist Mono', 'Noto Sans', sans-serif;
   font-size: 10px;
   font-weight: 300;
-  line-height: 16px;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   color: var(--subtle);
@@ -246,6 +239,7 @@ body {
 
 .day.inactive .day-num { color: var(--base); }
 .day.active   .day-num { color: #fafafa; }
+.day.extra    .day-num { color: #fafafa; }
 .day.empty    .day-num { display: none; }
 
 /* Stagger entrance */
@@ -271,7 +265,7 @@ body {
 .day.inactive { background: var(--inactive); color: var(--base); }
 .day.active   { background: var(--green); color: #fafafa; }
 .day.empty    { background: var(--inactive); visibility: hidden; }
-.day.extra    { background: var(--inactive); color: var(--base); overflow: hidden; }
+.day.extra    { background: var(--green); color: var(--base); overflow: hidden; }
 
 /* Selected day ring */
 .day.selected-day {
@@ -332,7 +326,6 @@ body {
 
 .legend-dot.active   { background: var(--green); }
 .legend-dot.inactive { background: #e8eaee; }
-.legend-dot.extra    { background: var(--inactive); border: 1px solid var(--border); }
 
 .legend-label {
   font-family: 'IBM Plex Mono', monospace;
@@ -350,6 +343,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  height: 100%;
   transition: opacity 0.2s ease;
   animation: fadeUp 0.6s 0.36s ease both;
 }
@@ -360,8 +354,7 @@ body {
   align-items: center;
   justify-content: center;
   gap: 24px;
-  height: 100%;
-  min-height: 300px;
+  flex: 1;
 }
 
 .panel-empty-text {
@@ -379,8 +372,6 @@ body.dark .panel-empty-text { color: #555; }
   flex-direction: column;
   gap: 24px;
 }
-
-body.dark .panel-empty-text { color: #555; }
 
 .project-image {
   width: 100%;
@@ -501,14 +492,18 @@ body.dark .panel-empty-text { color: #555; }
   display: grid;
   grid-template-columns: 380px 1fr 380px;
   align-items: center;
+  padding-bottom: 12px;
   animation: fadeUp 0.6s 0.35s ease both;
 }
 
 .footer-nav {
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
   align-items: center;
+  gap: 20px;
   padding: 0 26px;
+  border-top: 1px dashed var(--border);
+  height: 100%;
 }
 
 .footer-center { display: flex; justify-content: center; }
@@ -521,69 +516,10 @@ body.dark .panel-empty-text { color: #555; }
   padding: 0 20px;
 }
 
-.footer-credit {
-  font-family: 'Geist Mono', monospace;
-  font-size: 10px;
-  font-weight: 300;
-  color: var(--subtle);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  white-space: nowrap;
-  opacity: 0.6;
-}
-
 @keyframes rainbowSweep {
   0%   { background-position: 0% 50%; }
   50%  { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
-}
-
-.footer-logo {
-  font-size: 10px;
-  font-weight: 300;
-  line-height: 24px;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  cursor: pointer;
-  opacity: 0.6;
-  background: linear-gradient(90deg, var(--subtle) 0%, var(--subtle) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  transition: background 0.3s ease;
-}
-
-.footer-logo:hover {
-  background: linear-gradient(90deg, #5c5c5c, #a78bfa, #60a5fa, #34d399, #fbbf24, #f87171, #5c5c5c, #a78bfa, #60a5fa);
-  background-size: 300% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  animation: rainbowSweep 3s ease infinite;
-}
-
-.footer-about {
-  font-size: 10px;
-  font-weight: 300;
-  line-height: 24px;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  cursor: pointer;
-  opacity: 0.6;
-  color: transparent;
-  background: linear-gradient(90deg, var(--subtle) 0%, var(--subtle) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  transition: background 0.3s ease;
-  text-decoration: none;
-}
-
-.footer-about:hover {
-  background: linear-gradient(90deg, #5c5c5c, #a78bfa, #60a5fa, #34d399, #fbbf24, #f87171, #5c5c5c, #a78bfa, #60a5fa);
-  background-size: 300% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  animation: rainbowSweep 3s ease infinite;
 }
 
 @keyframes vinylSpin {
@@ -783,8 +719,6 @@ body.dark .spotify-progress-track       { background: #333; }
 body.dark .spotify-progress-fill        { background: #888; }
 body.dark .project-title                { color: #f0f0f0; }
 body.dark .media-loading { background: linear-gradient(90deg, #1a1a1a 25%, #2a2a2a 50%, #1a1a1a 75%); background-size: 800px 100%; animation: shimmer 1.4s ease infinite; }
-body.dark .footer-logo  { background: linear-gradient(90deg, #f0f0f0 0%, #f0f0f0 100%); -webkit-background-clip: text; background-clip: text; }
-body.dark .footer-about { background: linear-gradient(90deg, rgba(240,240,240,0.7) 0%, rgba(240,240,240,0.7) 100%); -webkit-background-clip: text; background-clip: text; }
 body.dark .name                         { color: #f0f0f0; }
 body.dark .day.inactive                 { background: #222; color: #aaa; }
 body.dark .legend-dot.inactive          { background: #333; }
@@ -795,11 +729,6 @@ body.dark .legend-dot.extra             { background: #222; border: 1px solid #4
 body.dark .mobile-header                { background: #111; }
 body.dark .mobile-brand                 { color: rgba(240,240,240,0.7); }
 body.dark .mobile-nav-item              { color: rgba(240,240,240,0.7); }
-
-/* ── Floating Spotify (mobile only) ─────────── */
-.spotify-float {
-  display: none;
-}
 
 /* ── Mobile header ──────────────────────────── */
 .mobile-header {
@@ -874,7 +803,7 @@ body.dark .mobile-theme-icon .icon-moon { display: block; }
   .divider-left        { left: 280px; }
   .divider-right       { right: 280px; }
   .sidebar             { padding: 40px 20px 80px; }
-  .center              { padding: 40px 20px 0; }
+  .center              { padding: 60px 10px 0; }
   .right-panel         { padding: 40px 16px 80px; }
   .cal-label           { white-space: normal; }
 }
@@ -886,7 +815,7 @@ body.dark .mobile-theme-icon .icon-moon { display: block; }
   .divider-left        { left: 220px; }
   .divider-right       { right: 220px; }
   .sidebar             { padding: 32px 16px 80px; gap: 16px; }
-  .center              { padding: 32px 16px 0; }
+  .center              { padding: 60px 8px 0; }
   .right-panel         { padding: 32px 12px 80px; }
   .cal-row             { gap: 4px; }
   .cal-label           { white-space: normal; font-size: 11px; }
@@ -897,27 +826,6 @@ body.dark .mobile-theme-icon .icon-moon { display: block; }
   html, body           { overflow: auto; height: auto; }
 
   .mobile-header       { display: flex; }
-
-  .spotify-float {
-    display: block;
-    position: fixed;
-    bottom: 24px;
-    right: 16px;
-    z-index: 200;
-  }
-  .spotify-float .spotify-widget {
-    background: rgba(255,255,255,0.18);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255,255,255,0.35);
-    box-shadow: 0 4px 24px rgba(0,0,0,0.12);
-    gap: 0;
-    padding: 4px 12px 4px 4px;
-  }
-  .spotify-float .sp-btn {
-    width: 14px;
-    opacity: 1;
-  }
 
   .page {
     grid-template-columns: 1fr;
@@ -970,7 +878,7 @@ body.dark .mobile-theme-icon .icon-moon { display: block; }
     grid-template-rows: auto;
   }
   .footer-nav          { display: none; }
-  .footer-center       { display: none; }
+  .footer-center       { display: flex; justify-content: flex-start; padding: 8px 16px 16px; }
   .footer-right        { display: none; }
   .name                { font-weight: 500; font-size: 15px; }
   .title               { font-size: 11px; }

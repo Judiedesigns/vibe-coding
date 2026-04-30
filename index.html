@@ -32,22 +32,6 @@
   </div>
 </header>
 
-<div id="spotify-anchor" class="spotify-anchor" style="position:fixed;top:20px;right:390px;z-index:200;">
-  <div class="spotify-widget" id="spotify-widget">
-    <button class="sp-btn sp-prev" onclick="spPrev()">‹</button>
-    <div class="spotify-art" id="sp-disc" onclick="spToggle()">
-      <img src="https://www.figma.com/api/mcp/asset/3e16a7cd-8064-4012-83d6-f4815831f942" alt="disc" />
-      <div class="spotify-center-dot"></div>
-    </div>
-    <button class="sp-btn sp-next" onclick="spNext()">›</button>
-    <div class="spotify-info">
-      <span class="spotify-text" id="sp-title">click disc to play</span>
-      <div class="spotify-progress-track" onclick="spSeek(event)">
-        <div class="spotify-progress-fill" id="sp-fill"></div>
-      </div>
-    </div>
-  </div>
-</div>
 <div class="divider-left"></div>
 <div class="divider-right"></div>
 <div class="page">
@@ -60,15 +44,8 @@
       <span class="email" onclick="copyEmailSidebar(this)">JUddblck2@gmail.com</span>
     </div>
 
-    <p class="bio">Hi, my name is Florence, and Mars to my friends. I'm a product designer moved by beautiful things. I love sharing what amazes me and I want to create work that does the same for others. The 20-day vibe coding challenge was about one thing: just starting. Watching myself grow from Day 1 to Day 20 has been fun.</p>
+    <p class="bio">Hi, my name is Florence, a product designer and design partner for startups. I am moved by beautiful things. I love sharing what amazes me and I want to create work that does the same for others. The vibe coding challenge was about one thing: just starting. Watching myself grow from Day 1 to Day 20 has been fun.<br><br>I am open to work. If you find my projects interesting, <a class="contact-link" href="mailto:juddblck2@gmail.com">contact me</a></p>
 
-    <p class="currently">I am open to work. If you find my projects interesting, <a class="contact-link" href="mailto:juddblck2@gmail.com">contact me</a></p>
-
-    <nav class="nav-links">
-      <a class="nav-link" href="https://contra.com/florence_eze_zq2os5ca/work?r=florence_eze_zq2os5ca" target="_blank">⟶ Contra</a>
-      <a class="nav-link" href="https://www.behance.net/florenceeze1" target="_blank">⟶ Behance</a>
-      <a class="nav-link" href="https://www.linkedin.com/in/florence-eze-07049223a/" target="_blank">⟶ Linkedin</a>
-    </nav>
   </aside>
 
   <!-- ── Center: Calendar ── -->
@@ -126,20 +103,31 @@
 <!-- ── Footer ── -->
 <footer class="footer">
   <nav class="footer-nav">
-    <span class="footer-logo" onclick="window.open('https://mars-portfolio.figma.site/','_blank')" style="cursor:pointer;">Portfolio</span>
-    <a class="footer-about" href="mailto:juddblck2@gmail.com" style="cursor:pointer;text-decoration:none;">Email</a>
+    <a class="nav-link" href="mailto:juddblck2@gmail.com">⟶ Email</a>
+    <a class="nav-link" href="https://mars-portfolio.figma.site/" target="_blank">⟶ Portfolio</a>
   </nav>
   <div class="footer-mobile-nav">
+    <a class="nav-link" href="mailto:juddblck2@gmail.com">⟶ Email</a>
     <a class="nav-link" href="https://mars-portfolio.figma.site/" target="_blank">⟶ Portfolio</a>
-    <a class="nav-link" href="https://contra.com/florence_eze_zq2os5ca/work?r=florence_eze_zq2os5ca" target="_blank">⟶ Contra</a>
-    <a class="nav-link" href="mailto:juddblck2@gmail.com" style="cursor:pointer;">⟶ Email</a>
-    <a class="nav-link" href="https://www.behance.net/florenceeze1" target="_blank">⟶ Behance</a>
-    <a class="nav-link" href="https://www.linkedin.com/in/florence-eze-07049223a/" target="_blank">⟶ Linkedin</a>
   </div>
-  <div class="footer-center"></div>
+  <div class="footer-center">
+    <div class="spotify-widget" id="spotify-widget">
+      <button class="sp-btn sp-prev" onclick="spPrev()">‹</button>
+      <div class="spotify-art" id="sp-disc" onclick="spToggle()">
+        <img src="https://www.figma.com/api/mcp/asset/3e16a7cd-8064-4012-83d6-f4815831f942" alt="disc" />
+        <div class="spotify-center-dot"></div>
+      </div>
+      <button class="sp-btn sp-next" onclick="spNext()">›</button>
+      <div class="spotify-info">
+        <span class="spotify-text" id="sp-title">click disc to play</span>
+        <div class="spotify-progress-track" onclick="spSeek(event)">
+          <div class="spotify-progress-fill" id="sp-fill"></div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="footer-right">
-    <span class="footer-credit">made by me &amp; Claude</span>
-    <div class="theme-toggle" style="position:static;opacity:0.6;">
+<div class="theme-toggle" style="position:static;opacity:0.6;">
       <span class="theme-label" id="theme-label">Light Mode</span>
       <div class="toggle-pill" id="theme-pill" onclick="toggleTheme()">
         <div class="toggle-thumb"></div>

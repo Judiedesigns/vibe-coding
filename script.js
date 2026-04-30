@@ -26,9 +26,9 @@ const projects = {
 // ── Extra / side projects (not part of 20-day challenge) ──────────────────
 // Add new entries here: e4, e5 ... when ready
 const extraProjects = {
-  e1: { title: 'Side Project',   image: 'projects/extra1.png', url: '' },
-  e2: { title: 'Side Project 2', image: '', url: '' },
-  e3: { title: 'Side Project 3', image: '', url: '' },
+  e1: { num: 6,  title: 'How To Dashboard',  desc: 'A clean, instructional dashboard layout built as a side exploration outside the 20-day challenge.',  image: 'projects/extra1.png',  url: 'https://how-to-dashboard.vercel.app/' },
+  e2: { num: 9,  title: 'Scroll Story',       desc: 'An alternate take on the full-bleed scroll story, experimenting with pacing and scene transitions.', image: 'projects/day-8b.mp4',  url: 'https://v0-scroll-story.vercel.app/' },
+  e3: { num: 10, title: 'Pulse Dashboard',    desc: 'A variant of the project collaboration tool with a refined layout and updated visual hierarchy.',    image: 'projects/day-18b.mp4', url: 'https://pulse-dashboard-18-silk.vercel.app/' },
 };
 
 // ── Calendar data ──────────────────────────────────────────────────────────
@@ -40,7 +40,7 @@ const weeks = [
   ['i16','a17','i18','a19','a20','a21','a22'],
   ['i23','a24','a25','a26','i27','a28','a29'],
   ['i30','a31','i1','i2','i3','i4','i5'],
-  ['e1','e2','e3','','','',''],
+  ['e1','i7','i8','e2','e3','',''],
 ];
 
 // ── Build calendar ─────────────────────────────────────────────────────────
@@ -61,11 +61,10 @@ weeks.forEach((week, rowIdx) => {
         d.className = 'day empty';
       } else {
         d.className = 'day extra';
-        if (ep.image) {
-          d.style.backgroundImage = `linear-gradient(rgba(255,255,255,0.55), rgba(255,255,255,0.55)), url('${ep.image}')`;
-          d.style.backgroundSize = 'cover';
-          d.style.backgroundPosition = 'center';
-        }
+        const span = document.createElement('span');
+        span.className = 'day-num';
+        span.textContent = ep.num;
+        d.appendChild(span);
         const tip = document.createElement('div');
         tip.className = 'day-tooltip';
         tip.textContent = ep.title;
@@ -215,18 +214,31 @@ function selectProject(key) {
 
   setTimeout(() => {
     document.getElementById('panel-empty').style.display = 'none';
-    document.getElementById('panel-content').style.display = '';
+    document.getElementById('panel-content').style.display = 'flex';
     document.querySelector('.toggle-switch').style.display = 'none';
     document.getElementById('panel-title').textContent = p.title;
     document.getElementById('panel-day').textContent = 'SIDE PROJECT';
     document.getElementById('panel-desc').textContent = p.desc || '';
     const mediaBox = document.getElementById('panel-media');
+    const mediaH = mediaBox ? mediaBox.offsetHeight || 320 : 320;
     if (mediaBox) {
       mediaBox.innerHTML = '';
-      if (p.image) {
+      mediaBox.classList.add('media-loading');
+      if (p.image && p.image.endsWith('.mp4')) {
+        const v = document.createElement('video');
+        v.autoplay = true; v.muted = true; v.loop = true; v.playsInline = true;
+        v.oncanplay = () => mediaBox.classList.remove('media-loading');
+        v.onerror  = () => mediaBox.classList.remove('media-loading');
+        v.style.cssText = `width:100%;height:${mediaH}px;object-fit:cover;display:block;border-radius:8px;`;
+        v.src = p.image;
+        mediaBox.appendChild(v);
+      } else if (p.image) {
         const i = document.createElement('img');
-        i.src = p.image; i.alt = p.title;
-        i.style.cssText = 'width:100%;height:100%;object-fit:cover;display:block;';
+        i.alt = p.title;
+        i.onload = () => mediaBox.classList.remove('media-loading');
+        i.onerror = () => mediaBox.classList.remove('media-loading');
+        i.style.cssText = `width:100%;height:${mediaH}px;object-fit:cover;display:block;border-radius:8px;`;
+        i.src = p.image;
         mediaBox.appendChild(i);
       }
     }
@@ -341,15 +353,6 @@ function spSetPlaying(val) {
 })();
 
 // ── Copy email ─────────────────────────────────────────────────────────────
-function copyEmail() {
-  navigator.clipboard.writeText('juddblck2@gmail.com').then(() => {
-    const el = document.querySelector('.footer-about');
-    const orig = el.textContent;
-    el.textContent = 'copied!';
-    setTimeout(() => { el.textContent = orig; }, 2000);
-  });
-}
-
 function copyEmailSidebar(el) {
   navigator.clipboard.writeText('juddblck2@gmail.com').then(() => {
     const orig = el.textContent;
@@ -358,21 +361,6 @@ function copyEmailSidebar(el) {
   });
 }
 
-
-// ── Mobile: move Spotify widget into footer-nav on mobile ─────────────────
-function syncSpotifyPlacement() {
-  const widget = document.getElementById('spotify-widget');
-  const anchor = document.getElementById('spotify-anchor');
-  const footerNav = document.querySelector('.footer-nav');
-  if (!widget || !anchor || !footerNav) return;
-  if (window.innerWidth <= 680) {
-    if (widget.parentElement !== footerNav) footerNav.appendChild(widget);
-  } else {
-    if (widget.parentElement !== anchor) anchor.appendChild(widget);
-  }
-}
-syncSpotifyPlacement();
-window.addEventListener('resize', syncSpotifyPlacement);
 
 // ── Theme toggle ───────────────────────────────────────────────────────────
 function playToggleSound(isDark) {

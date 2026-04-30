@@ -99,18 +99,11 @@
 
     <!-- Project content (hidden until a day is selected) -->
     <div class="panel-content" id="panel-content" style="display:none;">
-      <div style="display:flex;flex-direction:column;gap:20px;align-items:center;">
-        <img
-          class="project-image"
-          id="panel-image"
-          src=""
-          alt="project preview"
-        />
+        <div class="project-image media-loading" id="panel-media"></div>
         <div class="toggle-switch">
           <button class="toggle-btn selected" onclick="toggleView(this,'Prototype')">Prototype</button>
           <button class="toggle-btn" onclick="toggleView(this,'Prompt')">Prompt</button>
         </div>
-      </div>
 
       <div class="project-info">
         <div class="project-title-block">

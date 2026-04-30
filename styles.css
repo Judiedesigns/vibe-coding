@@ -345,11 +345,11 @@ body {
 
 /* ── Right Panel ────────────────────────────── */
 .right-panel {
-  padding: 52px 20px 80px;
+  padding: 24px 20px 80px;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 20px;
   transition: opacity 0.2s ease;
   animation: fadeUp 0.6s 0.36s ease both;
 }
@@ -384,11 +384,21 @@ body.dark .panel-empty-text { color: #555; }
 
 .project-image {
   width: 100%;
-  max-height: 260px;
-  border-radius: 4px;
-  object-fit: contain;
+  height: 320px;
+  border-radius: 8px;
+  object-fit: cover;
   display: block;
   background: var(--inactive);
+}
+
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position:  400px 0; }
+}
+.media-loading {
+  background: linear-gradient(90deg, #ebebeb 25%, #f5f5f5 50%, #ebebeb 75%);
+  background-size: 800px 100%;
+  animation: shimmer 1.4s ease infinite;
 }
 
 .toggle-switch {
@@ -770,6 +780,7 @@ body.dark .spotify-center-dot           { background: #222; }
 body.dark .spotify-progress-track       { background: #333; }
 body.dark .spotify-progress-fill        { background: #888; }
 body.dark .project-title                { color: #f0f0f0; }
+body.dark .media-loading { background: linear-gradient(90deg, #1a1a1a 25%, #2a2a2a 50%, #1a1a1a 75%); background-size: 800px 100%; animation: shimmer 1.4s ease infinite; }
 body.dark .footer-logo  { background: linear-gradient(90deg, #f0f0f0 0%, #f0f0f0 100%); -webkit-background-clip: text; background-clip: text; }
 body.dark .footer-about { background: linear-gradient(90deg, rgba(240,240,240,0.7) 0%, rgba(240,240,240,0.7) 100%); -webkit-background-clip: text; background-clip: text; }
 body.dark .name                         { color: #f0f0f0; }
@@ -944,7 +955,7 @@ body.dark .mobile-theme-icon .icon-moon { display: block; }
     border-left: 1px dashed var(--border);
     border-top: none;
   }
-  .project-image       { max-height: 300px; object-fit: cover; }
+  .project-image       { height: 220px; object-fit: cover; }
   .project-desc        { width: 100%; }
   .toggle-switch       { width: 100%; }
   .toggle-btn          { flex: 1; }

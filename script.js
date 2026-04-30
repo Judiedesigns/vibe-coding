@@ -2,25 +2,25 @@
 // image: relative path like 'projects/day1.png' or any URL
 // url:   live site link — shown on the "Live Link" button
 const projects = {
-  6:  { title: 'Sticky Nav That Transforms',           day: 1,  image: 'projects/day-1.png',  desc: 'Navigation that starts transparent over hero, shrinks and blurs on scroll, adds border, logo morphs from wordmark to icon.',                              url: 'https://gains-cycle-21379271.figma.site' },
-  7:  { title: 'Image Card with Hover Reveal',         day: 2,  image: 'projects/day-2.png',  desc: 'Portfolio-style cards with images that reveal project details and links on hover.',                                                                        url: 'https://mars-portfolio.figma.site/' },
-  8:  { title: 'Bento Grid with Dynamic Content',      day: 3,  image: 'projects/day-3.png',  desc: 'Asymmetric bento with mixed card sizes, one with auto-playing screen recording, one with live graph, one bold quote.',                                    url: 'https://v0-bento-grid-v0.vercel.app/' },
-  9:  { title: 'Stacked Toast Notifications',          day: 4,  image: 'projects/day-4.png',  desc: 'Toast notifications that stack, newest pushes others down, old ones scale and fade into stack, hover expands all.',                                       url: 'https://toast-ui.lovable.app/' },
-  10: { title: 'Testimonial Carousel',                 day: 5,  image: 'projects/day-5.png',  desc: 'Auto-scrolling testimonial cards with customer photos, quotes, and smooth slide transitions.',                                                             url: 'https://command-palette-task.lovable.app/' },
-  13: { title: 'E-Commerce Onboarding Screens',        day: 6,  image: 'projects/day-6.png',  desc: 'Swipeable onboarding flow with vibrant imagery, smooth transitions, and progress indicators.',                                                            url: 'https://client-narratives.lovable.app/' },
-  14: { title: 'Pricing Card with Toggle',             day: 7,  image: 'projects/day-7.png',  desc: 'Pricing cards with monthly/annual toggle and smooth animated transitions.',                                                                                url: 'https://v0-pricing-cards-claude.vercel.app' },
-  15: { title: 'Full-Bleed Scroll Story',              day: 8,  image: 'projects/day-8.png',  desc: 'A product feature story told over 5 scroll-triggered scenes with no navigation.',                                                                         url: 'https://v0-scroll-story.vercel.app' },
-  17: { title: 'File Upload Drop Zone',                day: 9,  image: 'projects/day-9.png',  desc: 'Drag-and-drop with rich progress animation, file preview, and error states.',                                                                              url: 'https://v0-html-to-react-component-2t.vercel.app/' },
-  19: { title: 'Dark SaaS Dashboard',                  day: 10, image: 'projects/day-10.png', desc: 'Single dashboard view with sidebar, header, metric cards, chart, and data table.',                                                                         url: 'https://nucleus-dashboard-task.vercel.app/' },
-  20: { title: 'Waitlist Page',                        day: 11, image: 'projects/day-11.png', desc: 'Email capture with live counter of people waiting and confetti on submit.',                                                                                 url: 'https://waitlist-page-task-tprc.vercel.app/' },
-  21: { title: 'Testimonial Marquee',                  day: 12, image: 'projects/day-12.png', desc: 'Infinite scrolling quote cards, two rows moving in opposite directions.',                                                                                  url: 'https://testimonial-marquee-task12.vercel.app/' },
+  6:  { title: 'Sticky Nav That Transforms',           day: 1,  image: 'projects/day-1.mp4',  desc: 'Navigation that starts transparent over hero, shrinks and blurs on scroll, adds border, logo morphs from wordmark to icon.',                              url: 'https://gains-cycle-21379271.figma.site' },
+  7:  { title: 'Image Card with Hover Reveal',         day: 2,  image: 'projects/day-2.mp4',  desc: 'Portfolio-style cards with images that reveal project details and links on hover.',                                                                        url: 'https://mars-portfolio.figma.site/' },
+  8:  { title: 'Bento Grid with Dynamic Content',      day: 3,  image: 'projects/day-3.mp4',  desc: 'Asymmetric bento with mixed card sizes, one with auto-playing screen recording, one with live graph, one bold quote.',                                    url: 'https://v0-bento-grid-v0.vercel.app/' },
+  9:  { title: 'Stacked Toast Notifications',          day: 4,  image: 'projects/day-4.mp4',  desc: 'Toast notifications that stack, newest pushes others down, old ones scale and fade into stack, hover expands all.',                                       url: 'https://toast-ui.lovable.app/' },
+  10: { title: 'Testimonial Carousel',                 day: 5,  image: 'projects/day-5.mp4',  desc: 'Auto-scrolling testimonial cards with customer photos, quotes, and smooth slide transitions.',                                                             url: 'https://command-palette-task.lovable.app/' },
+  13: { title: 'E-Commerce Onboarding Screens',        day: 6,  image: 'projects/day-6.mp4',  desc: 'Swipeable onboarding flow with vibrant imagery, smooth transitions, and progress indicators.',                                                            url: 'https://client-narratives.lovable.app/' },
+  14: { title: 'Pricing Card with Toggle',             day: 7,  image: 'projects/day-7.mp4',  desc: 'Pricing cards with monthly/annual toggle and smooth animated transitions.',                                                                                url: 'https://v0-pricing-cards-claude.vercel.app' },
+  15: { title: 'Full-Bleed Scroll Story',              day: 8,  image: 'projects/day-8.mp4',  desc: 'A product feature story told over 5 scroll-triggered scenes with no navigation.',                                                                         url: 'https://v0-scroll-story.vercel.app' },
+  17: { title: 'File Upload Drop Zone',                day: 9,  image: 'projects/day-9.mp4',  desc: 'Drag-and-drop with rich progress animation, file preview, and error states.',                                                                              url: 'https://v0-html-to-react-component-2t.vercel.app/' },
+  19: { title: 'Dark SaaS Dashboard',                  day: 10, image: 'projects/day-10.mp4', desc: 'Single dashboard view with sidebar, header, metric cards, chart, and data table.',                                                                         url: 'https://nucleus-dashboard-task.vercel.app/' },
+  20: { title: 'Waitlist Page',                        day: 11, image: 'projects/day-11.mp4', desc: 'Email capture with live counter of people waiting and confetti on submit.',                                                                                 url: 'https://waitlist-page-task-tprc.vercel.app/' },
+  21: { title: 'Testimonial Marquee',                  day: 12, image: 'projects/day-12.mp4', desc: 'Infinite scrolling quote cards, two rows moving in opposite directions.',                                                                                  url: 'https://testimonial-marquee-task12.vercel.app/' },
   22: { title: 'Context Menu',                         day: 13, image: 'projects/day-13.png', desc: 'Right-click menu with nested items, keyboard support, and positional awareness.',                                                                          url: 'https://context-menu-13.vercel.app/' },
   24: { title: 'Mobile App Hero',                      day: 14, image: 'projects/day-14.png', desc: 'Hero section with floating phone mockup, ambient glow, and orbiting feature callouts.',                                                                    url: 'https://mobile-app-hero-14.vercel.app/' },
-  25: { title: 'Skeleton Loader Set',                  day: 15, image: 'projects/day-15.png', desc: '6 content skeletons with shimmer animation.',                                                                                                              url: 'https://skeleton-loader-15.vercel.app/' },
-  26: { title: 'Mobile Finance Dashboard',             day: 16, image: 'projects/day-16.png', desc: 'Beautiful mobile app showing wallet, spending patterns, and financial health at a glance.',                                                                 url: 'https://mobile-finance-16.vercel.app' },
+  25: { title: 'Skeleton Loader Set',                  day: 15, image: 'projects/day-15.mp4', desc: '6 content skeletons with shimmer animation.',                                                                                                              url: 'https://skeleton-loader-15.vercel.app/' },
+  26: { title: 'Mobile Finance Dashboard',             day: 16, image: 'projects/day-16.mp4', desc: 'Beautiful mobile app showing wallet, spending patterns, and financial health at a glance.',                                                                 url: 'https://mobile-finance-16.vercel.app' },
   28: { title: 'SaaS Onboarding & Auth Flow',          day: 17, image: 'projects/day-17.png', desc: 'Complete auth system with signup, email verification, profile setup, and personalized dashboard.',                                                         url: 'https://analytics-dashboard-17.vercel.app' },
   29: { title: 'Project Collaboration Tool',           day: 18, image: 'projects/day-18.png', desc: 'Multi-user workspace with projects, team members, tasks, and real-time updates.',                                                                          url: 'https://pulse-dashboard-18-silk.vercel.app/' },
-  31: { title: 'Community & Social Platform',          day: 19, image: 'projects/day-19.png', desc: 'User-generated content platform with profiles, posts, likes, comments, and social discovery.',                                                             url: 'https://hive-community-pi.vercel.app' },
+  31: { title: 'Community & Social Platform',          day: 19, image: 'projects/day-19.mp4', desc: 'User-generated content platform with profiles, posts, likes, comments, and social discovery.',                                                             url: 'https://hive-community-pi.vercel.app' },
 };
 
 // ── Extra / side projects (not part of 20-day challenge) ──────────────────
@@ -90,6 +90,7 @@ weeks.forEach((week, rowIdx) => {
         d.appendChild(tip);
         d.setAttribute('data-day', num);
         d.addEventListener('click', () => selectDay(num));
+        d.addEventListener('mouseenter', () => preloadMedia(projects[num].image));
       }
     }
     row.appendChild(d);
@@ -116,6 +117,23 @@ function playTick() {
   });
 }
 
+// ── Media preloading ───────────────────────────────────────────────────────
+const _preloaded = new Set();
+function preloadMedia(src) {
+  if (!src || _preloaded.has(src)) return;
+  _preloaded.add(src);
+  if (src.endsWith('.mp4')) {
+    const v = document.createElement('video');
+    v.preload = 'auto';
+    v.src = src;
+  } else {
+    const i = new Image();
+    i.src = src;
+  }
+}
+// Preload all PNG images immediately (small files, safe to fetch upfront)
+Object.values(projects).forEach(p => { if (p.image && !p.image.endsWith('.mp4')) preloadMedia(p.image); });
+
 // ── Day click → update right panel ────────────────────────────────────────
 document.querySelector('.toggle-switch').style.display = 'none';
 
@@ -133,6 +151,9 @@ function selectDay(num, silent = false) {
   const panel = document.getElementById('right-panel');
   panel.style.opacity = '0';
 
+  // Kick off network load immediately (head start while fade runs)
+  if (p.image) preloadMedia(p.image);
+
   setTimeout(() => {
     document.getElementById('panel-empty').style.display = 'none';
     document.getElementById('panel-content').style.display = '';
@@ -140,9 +161,27 @@ function selectDay(num, silent = false) {
     document.getElementById('panel-title').textContent = p.title;
     document.getElementById('panel-day').textContent = `DAY ${p.day}`;
     document.getElementById('panel-desc').textContent = p.desc || '';
-    const img = document.getElementById('panel-image');
-    if (p.image) { img.src = p.image; img.style.display = ''; }
-    else { img.style.display = 'none'; }
+
+    const mediaBox = document.getElementById('panel-media');
+    if (mediaBox) {
+      mediaBox.innerHTML = '';
+      mediaBox.classList.add('media-loading');
+      if (p.image && p.image.endsWith('.mp4')) {
+        const v = document.createElement('video');
+        v.src = p.image;
+        v.autoplay = true; v.muted = true; v.loop = true; v.playsInline = true;
+        v.style.cssText = 'width:100%;height:100%;object-fit:cover;display:block;';
+        v.oncanplay = () => mediaBox.classList.remove('media-loading');
+        mediaBox.appendChild(v);
+      } else if (p.image) {
+        const i = document.createElement('img');
+        i.src = p.image; i.alt = p.title;
+        i.style.cssText = 'width:100%;height:100%;object-fit:cover;display:block;';
+        i.onload = () => mediaBox.classList.remove('media-loading');
+        mediaBox.appendChild(i);
+      }
+    }
+
     currentUrl = p.url || '';
     const btn = document.getElementById('panel-link');
     btn.textContent = 'Live Link';
@@ -151,7 +190,7 @@ function selectDay(num, silent = false) {
     btn.style.pointerEvents = currentUrl ? 'auto' : 'none';
     panel.style.opacity = '1';
     if (window.innerWidth <= 680) panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }, 200);
+  }, 60);
 }
 
 function openLiveLink() {
@@ -177,9 +216,16 @@ function selectProject(key) {
     document.getElementById('panel-title').textContent = p.title;
     document.getElementById('panel-day').textContent = 'SIDE PROJECT';
     document.getElementById('panel-desc').textContent = p.desc || '';
-    const img = document.getElementById('panel-image');
-    if (p.image) { img.src = p.image; img.style.display = ''; }
-    else { img.style.display = 'none'; }
+    const mediaBox = document.getElementById('panel-media');
+    if (mediaBox) {
+      mediaBox.innerHTML = '';
+      if (p.image) {
+        const i = document.createElement('img');
+        i.src = p.image; i.alt = p.title;
+        i.style.cssText = 'width:100%;height:100%;object-fit:cover;display:block;';
+        mediaBox.appendChild(i);
+      }
+    }
     currentUrl = p.url || '';
     const btn = document.getElementById('panel-link');
     btn.textContent = 'Live Link';

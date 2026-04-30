@@ -32,6 +32,22 @@
   </div>
 </header>
 
+<div id="spotify-anchor" class="spotify-anchor" style="position:fixed;top:20px;right:390px;z-index:200;">
+  <div class="spotify-widget" id="spotify-widget">
+    <button class="sp-btn sp-prev" onclick="spPrev()">‹</button>
+    <div class="spotify-art" id="sp-disc" onclick="spToggle()">
+      <img src="https://www.figma.com/api/mcp/asset/3e16a7cd-8064-4012-83d6-f4815831f942" alt="disc" />
+      <div class="spotify-center-dot"></div>
+    </div>
+    <button class="sp-btn sp-next" onclick="spNext()">›</button>
+    <div class="spotify-info">
+      <span class="spotify-text" id="sp-title">click disc to play</span>
+      <div class="spotify-progress-track" onclick="spSeek(event)">
+        <div class="spotify-progress-fill" id="sp-fill"></div>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="divider-left"></div>
 <div class="divider-right"></div>
 <div class="page">
@@ -75,31 +91,41 @@
 
   <!-- ── Right Panel ── -->
   <aside class="right-panel" id="right-panel">
-    <div style="display:flex;flex-direction:column;gap:20px;align-items:center;">
-      <img
-        class="project-image"
-        id="panel-image"
-        src="https://www.figma.com/api/mcp/asset/6bf7f4af-25c3-4fcf-923c-a9747cdb6dbf"
-        alt="project preview"
-      />
-      <div class="toggle-switch">
-        <button class="toggle-btn selected" onclick="toggleView(this,'Prototype')">Prototype</button>
-        <button class="toggle-btn" onclick="toggleView(this,'Prompt')">Prompt</button>
+
+    <!-- Empty state -->
+    <div class="panel-empty" id="panel-empty">
+      <span class="panel-empty-text">Click a green box to view a project</span>
+    </div>
+
+    <!-- Project content (hidden until a day is selected) -->
+    <div class="panel-content" id="panel-content" style="display:none;">
+      <div style="display:flex;flex-direction:column;gap:20px;align-items:center;">
+        <img
+          class="project-image"
+          id="panel-image"
+          src=""
+          alt="project preview"
+        />
+        <div class="toggle-switch">
+          <button class="toggle-btn selected" onclick="toggleView(this,'Prototype')">Prototype</button>
+          <button class="toggle-btn" onclick="toggleView(this,'Prompt')">Prompt</button>
+        </div>
+      </div>
+
+      <div class="project-info">
+        <div class="project-title-block">
+          <p class="project-title" id="panel-title"></p>
+          <div class="project-meta">
+            <span>2026</span>
+            <span>·</span>
+            <span id="panel-day"></span>
+          </div>
+        </div>
+        <p class="project-desc" id="panel-desc"></p>
+        <button class="live-link-btn" id="panel-link" onclick="openLiveLink()">Live Link</button>
       </div>
     </div>
 
-    <div class="project-info">
-      <div class="project-title-block">
-        <p class="project-title" id="panel-title">Sticky Nav That Transforms</p>
-        <div class="project-meta">
-          <span>2026</span>
-          <span>·</span>
-          <span id="panel-day">DAY 1</span>
-        </div>
-      </div>
-      <p class="project-desc" id="panel-desc">Navigation that starts transparent over hero, shrinks and blurs on scroll, adds border, logo morphs from wordmark to icon.</p>
-      <button class="live-link-btn" id="panel-link" onclick="openLiveLink()">Live Link</button>
-    </div>
   </aside>
 
 </div>
@@ -109,20 +135,6 @@
   <nav class="footer-nav">
     <span class="footer-logo" onclick="window.open('https://mars-portfolio.figma.site/','_blank')" style="cursor:pointer;">Portfolio</span>
     <a class="footer-about" href="mailto:juddblck2@gmail.com" style="cursor:pointer;text-decoration:none;">Email</a>
-    <div class="spotify-widget" id="spotify-widget">
-      <button class="sp-btn sp-prev" onclick="spPrev()">‹</button>
-      <div class="spotify-art" id="sp-disc" onclick="spToggle()">
-        <img src="https://www.figma.com/api/mcp/asset/3e16a7cd-8064-4012-83d6-f4815831f942" alt="disc" />
-        <div class="spotify-center-dot"></div>
-      </div>
-      <button class="sp-btn sp-next" onclick="spNext()">›</button>
-      <div class="spotify-info">
-        <span class="spotify-text" id="sp-title">click disc to play</span>
-        <div class="spotify-progress-track" onclick="spSeek(event)">
-          <div class="spotify-progress-fill" id="sp-fill"></div>
-        </div>
-      </div>
-    </div>
   </nav>
   <div class="footer-mobile-nav">
     <a class="nav-link" href="https://mars-portfolio.figma.site/" target="_blank">⟶ Portfolio</a>
@@ -142,8 +154,6 @@
     </div>
   </div>
 </footer>
-
-<div id="spotify-float" class="spotify-float"></div>
 
 <script src="script.js" defer></script>
 </body>

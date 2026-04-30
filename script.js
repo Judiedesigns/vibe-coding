@@ -97,6 +97,7 @@ weeks.forEach((week, rowIdx) => {
   cal.appendChild(row);
 });
 
+
 // ── Click sound ────────────────────────────────────────────────────────────
 let _audioCtx = null;
 function playTick() {
@@ -133,6 +134,8 @@ function selectDay(num, silent = false) {
   panel.style.opacity = '0';
 
   setTimeout(() => {
+    document.getElementById('panel-empty').style.display = 'none';
+    document.getElementById('panel-content').style.display = '';
     document.querySelector('.toggle-switch').style.display = '';
     document.getElementById('panel-title').textContent = p.title;
     document.getElementById('panel-day').textContent = `DAY ${p.day}`;
@@ -168,6 +171,8 @@ function selectProject(key) {
   panel.style.opacity = '0';
 
   setTimeout(() => {
+    document.getElementById('panel-empty').style.display = 'none';
+    document.getElementById('panel-content').style.display = '';
     document.querySelector('.toggle-switch').style.display = 'none';
     document.getElementById('panel-title').textContent = p.title;
     document.getElementById('panel-day').textContent = 'SIDE PROJECT';
@@ -304,16 +309,16 @@ function copyEmailSidebar(el) {
 }
 
 
-// ── Mobile: move Spotify widget into top nav ───────────────────────────────
+// ── Mobile: move Spotify widget into footer-nav on mobile ─────────────────
 function syncSpotifyPlacement() {
   const widget = document.getElementById('spotify-widget');
-  const mobileFloat = document.getElementById('spotify-float');
+  const anchor = document.getElementById('spotify-anchor');
   const footerNav = document.querySelector('.footer-nav');
-  if (!widget || !mobileFloat || !footerNav) return;
+  if (!widget || !anchor || !footerNav) return;
   if (window.innerWidth <= 680) {
-    if (widget.parentElement !== mobileFloat) mobileFloat.appendChild(widget);
-  } else {
     if (widget.parentElement !== footerNav) footerNav.appendChild(widget);
+  } else {
+    if (widget.parentElement !== anchor) anchor.appendChild(widget);
   }
 }
 syncSpotifyPlacement();
@@ -344,6 +349,7 @@ function toggleTheme() {
   playToggleSound(isDark);
 }
 
+
 // ── Live Link ripple ───────────────────────────────────────────────────────
 document.getElementById('panel-link').addEventListener('click', function(e) {
   const btn = this;
@@ -362,5 +368,3 @@ document.getElementById('panel-link').addEventListener('click', function(e) {
   ripple.addEventListener('animationend', () => ripple.remove());
 });
 
-// ── Auto-select Day 1 on load ──────────────────────────────────────────────
-setTimeout(() => selectDay(6, true), 600);

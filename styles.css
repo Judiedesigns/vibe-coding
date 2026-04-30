@@ -11,7 +11,12 @@
   --bg: #fff;
 }
 
-html, body {
+html {
+  height: 100%;
+  background: var(--bg);
+}
+
+body {
   height: 100%;
   background: var(--bg);
   font-family: 'Geist Mono', monospace;
@@ -39,6 +44,14 @@ html, body {
 }
 .divider-left  { left: 380px; }
 .divider-right { right: 380px; }
+
+/* ── Spotify fixed anchor (above center column) ── */
+.spotify-anchor {
+  position: fixed;
+  top: 20px;
+  right: 390px;
+  z-index: 200;
+}
 
 /* ── Left Sidebar ───────────────────────────── */
 .sidebar {
@@ -196,6 +209,7 @@ html, body {
   white-space: nowrap;
 }
 
+
 .calendar {
   display: flex;
   flex-direction: column;
@@ -264,6 +278,7 @@ html, body {
   outline: 2px solid var(--base);
   outline-offset: 2px;
 }
+
 
 /* Tooltip */
 .day-tooltip {
@@ -338,6 +353,34 @@ html, body {
   transition: opacity 0.2s ease;
   animation: fadeUp 0.6s 0.36s ease both;
 }
+
+.panel-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  height: 100%;
+  min-height: 300px;
+}
+
+.panel-empty-text {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--muted);
+  letter-spacing: -0.3px;
+}
+
+body.dark .panel-empty-text { color: #555; }
+
+.panel-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+body.dark .panel-empty-text { color: #555; }
 
 .project-image {
   width: 100%;
@@ -433,6 +476,7 @@ html, body {
 }
 
 .live-link-btn:hover { background: #e0e0e0; }
+
 
 /* ── Footer ─────────────────────────────────── */
 .footer {

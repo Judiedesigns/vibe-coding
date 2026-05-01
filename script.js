@@ -2,25 +2,25 @@
 // image: relative path like 'projects/day1.png' or any URL
 // url:   live site link — shown on the "Live Link" button
 const projects = {
-  6:  { title: 'Sticky Nav That Transforms',           day: 1,  image: 'projects/day-1.mp4',  desc: 'Navigation that starts transparent over hero, shrinks and blurs on scroll, adds border, logo morphs from wordmark to icon.',                              url: 'https://gains-cycle-21379271.figma.site' },
-  7:  { title: 'Image Card with Hover Reveal',         day: 2,  image: 'projects/day-2.mp4',  desc: 'Portfolio-style cards with images that reveal project details and links on hover.',                                                                        url: 'https://mars-portfolio.figma.site/' },
-  8:  { title: 'Bento Grid with Dynamic Content',      day: 3,  image: 'projects/day-3.mp4',  desc: 'Asymmetric bento with mixed card sizes, one with auto-playing screen recording, one with live graph, one bold quote.',                                    url: 'https://v0-bento-grid-v0.vercel.app/' },
-  9:  { title: 'Stacked Toast Notifications',          day: 4,  image: 'projects/day-4.mp4',  desc: 'Toast notifications that stack, newest pushes others down, old ones scale and fade into stack, hover expands all.',                                       url: 'https://toast-ui.lovable.app/' },
-  10: { title: 'Testimonial Carousel',                 day: 5,  image: 'projects/day-5.mp4',  desc: 'Auto-scrolling testimonial cards with customer photos, quotes, and smooth slide transitions.',                                                             url: 'https://command-palette-task.lovable.app/' },
-  13: { title: 'E-Commerce Onboarding Screens',        day: 6,  image: 'projects/day-6.mp4',  desc: 'Swipeable onboarding flow with vibrant imagery, smooth transitions, and progress indicators.',                                                            url: 'https://client-narratives.lovable.app/' },
-  14: { title: 'Pricing Card with Toggle',             day: 7,  image: 'projects/day-7.mp4',  desc: 'Pricing cards with monthly/annual toggle and smooth animated transitions.',                                                                                url: 'https://v0-pricing-cards-claude.vercel.app' },
-  15: { title: 'Full-Bleed Scroll Story',              day: 8,  image: 'projects/day-8.mp4',  desc: 'A product feature story told over 5 scroll-triggered scenes with no navigation.',                                                                         url: 'https://v0-scroll-story.vercel.app' },
-  17: { title: 'File Upload Drop Zone',                day: 9,  image: 'projects/day-9.mp4',  desc: 'Drag-and-drop with rich progress animation, file preview, and error states.',                                                                              url: 'https://v0-html-to-react-component-2t.vercel.app/' },
-  19: { title: 'Dark SaaS Dashboard',                  day: 10, image: 'projects/day-10.mp4', desc: 'Single dashboard view with sidebar, header, metric cards, chart, and data table.',                                                                         url: 'https://nucleus-dashboard-task.vercel.app/' },
-  20: { title: 'Waitlist Page',                        day: 11, image: 'projects/day-11.mp4', desc: 'Email capture with live counter of people waiting and confetti on submit.',                                                                                 url: 'https://waitlist-page-task-tprc.vercel.app/' },
-  21: { title: 'Testimonial Marquee',                  day: 12, image: 'projects/day-12.mp4', desc: 'Infinite scrolling quote cards, two rows moving in opposite directions.',                                                                                  url: 'https://testimonial-marquee-task12.vercel.app/' },
-  22: { title: 'Context Menu',                         day: 13, image: 'projects/day-13.jpg', desc: 'Right-click menu with nested items, keyboard support, and positional awareness.',                                                                          url: 'https://context-menu-13.vercel.app/' },
-  24: { title: 'Mobile App Hero',                      day: 14, image: 'projects/day-14.png', desc: 'Hero section with floating phone mockup, ambient glow, and orbiting feature callouts.',                                                                    url: 'https://mobile-app-hero-14.vercel.app/' },
-  25: { title: 'Skeleton Loader Set',                  day: 15, image: 'projects/day-15.mp4', desc: '6 content skeletons with shimmer animation.',                                                                                                              url: 'https://skeleton-loader-15.vercel.app/' },
-  26: { title: 'Mobile Finance Dashboard',             day: 16, image: 'projects/day-16.mp4', desc: 'Beautiful mobile app showing wallet, spending patterns, and financial health at a glance.',                                                                 url: 'https://mobile-finance-16.vercel.app' },
-  28: { title: 'SaaS Onboarding & Auth Flow',          day: 17, image: 'projects/day-17.png', desc: 'Complete auth system with signup, email verification, profile setup, and personalized dashboard.',                                                         url: 'https://analytics-dashboard-17.vercel.app' },
-  29: { title: 'Project Collaboration Tool',           day: 18, image: 'projects/day-18.png', desc: 'Multi-user workspace with projects, team members, tasks, and real-time updates.',                                                                          url: 'https://pulse-dashboard-18-silk.vercel.app/' },
-  31: { title: 'Community & Social Platform',          day: 19, image: 'projects/day-19.mp4', desc: 'User-generated content platform with profiles, posts, likes, comments, and social discovery.',                                                             url: 'https://hive-community-pi.vercel.app' },
+  6:  { title: 'Sticky Nav That Transforms',           day: 1,  image: 'projects/day-1.mp4',  desc: 'Navigation that starts transparent over hero, shrinks and blurs on scroll, adds border, logo morphs from wordmark to icon.',                              url: 'https://gains-cycle-21379271.figma.site',        prompt: 'Navigation that starts transparent over hero, shrinks and blurs on scroll, adds border, logo morphs from wordmark to icon.' },
+  7:  { title: 'Image Card with Hover Reveal',         day: 2,  image: 'projects/day-2.mp4',  desc: 'Portfolio-style cards with images that reveal project details and links on hover.',                                                                        url: 'https://mars-portfolio.figma.site/',             prompt: 'Portfolio-style cards with images that reveal project details and links on hover.' },
+  8:  { title: 'Bento Grid with Dynamic Content',      day: 3,  image: 'projects/day-3.mp4',  desc: 'Asymmetric bento with mixed card sizes, one with auto-playing screen recording, one with live graph, one bold quote.',                                    url: 'https://v0-bento-grid-v0.vercel.app/',           prompt: 'Asymmetric bento with mixed card sizes, one with auto-playing screen recording, one with live graph, one bold quote.' },
+  9:  { title: 'Stacked Toast Notifications',          day: 4,  image: 'projects/day-4.mp4',  desc: 'Toast notifications that stack, newest pushes others down, old ones scale and fade into stack, hover expands all.',                                       url: 'https://toast-ui.lovable.app/',                  prompt: 'Toast notifications that stack, newest pushes others down, old ones scale and fade into stack, hover expands all.' },
+  10: { title: 'Testimonial Carousel',                 day: 5,  image: 'projects/day-5.mp4',  desc: 'Auto-scrolling testimonial cards with customer photos, quotes, and smooth slide transitions.',                                                             url: 'https://command-palette-task.lovable.app/',      prompt: 'Auto-scrolling testimonial cards with customer photos, quotes, and smooth slide transitions.' },
+  13: { title: 'E-Commerce Onboarding Screens',        day: 6,  image: 'projects/day-6.mp4',  desc: 'Swipeable onboarding flow with vibrant imagery, smooth transitions, and progress indicators.',                                                            url: 'https://client-narratives.lovable.app/',         prompt: 'Swipeable onboarding flow with vibrant imagery, smooth transitions, and progress indicators.' },
+  14: { title: 'Pricing Card with Toggle',             day: 7,  image: 'projects/day-7.mp4',  desc: 'Pricing cards with monthly/annual toggle and smooth animated transitions.',                                                                                url: 'https://v0-pricing-cards-claude.vercel.app',     prompt: 'Build pricing cards featuring a monthly/annual toggle with animated transitions between pricing tiers.' },
+  15: { title: 'Full-Bleed Scroll Story',              day: 8,  image: 'projects/day-8.mp4',  desc: 'A product feature story told over 5 scroll-triggered scenes with no navigation.',                                                                         url: 'https://v0-scroll-story.vercel.app',             prompt: 'Tell a product feature story over 5 scroll-triggered scenes with no navigation.' },
+  17: { title: 'File Upload Drop Zone',                day: 9,  image: 'projects/day-9.mp4',  desc: 'Drag-and-drop with rich progress animation, file preview, and error states.',                                                                              url: 'https://v0-html-to-react-component-2t.vercel.app/', prompt: 'Create drag-and-drop with rich progress animation, file preview, and error states.' },
+  19: { title: 'Dark SaaS Dashboard',                  day: 10, image: 'projects/day-10.mp4', desc: 'Single dashboard view with sidebar, header, metric cards, chart, and data table.',                                                                         url: 'https://nucleus-dashboard-task.vercel.app/',     prompt: 'Develop a single dashboard interface with sidebar, header, metric cards, chart, and data table.' },
+  20: { title: 'Waitlist Page',                        day: 11, image: 'projects/day-11.mp4', desc: 'Email capture with live counter of people waiting and confetti on submit.',                                                                                 url: 'https://waitlist-page-task-tprc.vercel.app/',    prompt: 'Email capture with live counter of people waiting and confetti on submit.' },
+  21: { title: 'Testimonial Marquee',                  day: 12, image: 'projects/day-12.mp4', desc: 'Infinite scrolling quote cards, two rows moving in opposite directions.',                                                                                  url: 'https://testimonial-marquee-task12.vercel.app/', prompt: 'Infinite scrolling quote cards, two rows moving in opposite directions.' },
+  22: { title: 'Context Menu',                         day: 13, image: 'projects/day-13.jpg', desc: 'Right-click menu with nested items, keyboard support, and positional awareness.',                                                                          url: 'https://context-menu-13.vercel.app/',            prompt: 'Right-click menu with nested items, keyboard support, and positional awareness.' },
+  24: { title: 'Mobile App Hero',                      day: 14, image: 'projects/day-14.png', desc: 'Hero section with floating phone mockup, ambient glow, and orbiting feature callouts.',                                                                    url: 'https://mobile-app-hero-14.vercel.app/',         prompt: 'Hero section with floating phone mockup, ambient glow, and orbiting feature callouts.' },
+  25: { title: 'Skeleton Loader Set',                  day: 15, image: 'projects/day-15.mp4', desc: '6 content skeletons with shimmer animation.',                                                                                                              url: 'https://skeleton-loader-15.vercel.app/',         prompt: 'Create 6 content skeletons with shimmer animation.' },
+  26: { title: 'Mobile Finance Dashboard',             day: 16, image: 'projects/day-16.mp4', desc: 'Beautiful mobile app showing wallet, spending patterns, and financial health at a glance.',                                                                 url: 'https://mobile-finance-16.vercel.app',           prompt: 'Beautiful mobile app showing wallet, spending patterns, and financial health at a glance.' },
+  28: { title: 'SaaS Onboarding & Auth Flow',          day: 17, image: 'projects/day-17.png', desc: 'Complete auth system with signup, email verification, profile setup, and personalized dashboard.',                                                         url: 'https://analytics-dashboard-17.vercel.app',      prompt: 'Construct a complete auth system including signup, email verification, profile setup, and personalized dashboard.' },
+  29: { title: 'Project Collaboration Tool',           day: 18, image: 'projects/day-18.png', desc: 'Multi-user workspace with projects, team members, tasks, and real-time updates.',                                                                          url: 'https://pulse-dashboard-18-silk.vercel.app/',    prompt: 'Multi-user workspace with projects, team members, tasks, and real-time updates.' },
+  31: { title: 'Community & Social Platform',          day: 19, image: 'projects/day-19.mp4', desc: 'User-generated content platform with profiles, posts, likes, comments, and social discovery.',                                                             url: 'https://hive-community-pi.vercel.app',           prompt: 'User-generated content platform with profiles, posts, likes, comments, and social discovery.' },
 };
 
 // ── Extra / side projects (not part of 20-day challenge) ──────────────────
@@ -159,6 +159,12 @@ function selectDay(num, silent = false) {
     document.getElementById('panel-day').textContent = `DAY ${p.day}`;
     document.getElementById('panel-desc').textContent = p.desc || '';
 
+    // reset to Prototype view
+    document.querySelectorAll('.toggle-btn').forEach((b, i) => b.classList.toggle('selected', i === 0));
+    document.getElementById('panel-media').style.display = '';
+    document.getElementById('panel-prompt').style.display = 'none';
+    document.getElementById('panel-prompt').textContent = p.prompt || '';
+
     const mediaBox = document.getElementById('panel-media');
     const mediaH = mediaBox ? mediaBox.offsetHeight || 320 : 320;
     if (mediaBox) {
@@ -252,22 +258,25 @@ function selectProject(key) {
 }
 
 // ── Prototype / Prompt toggle ──────────────────────────────────────────────
-const PROMPT_URL = 'https://v0-ai-build-sprint.vercel.app/';
-
 function toggleView(btn, view) {
   document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('selected'));
   btn.classList.add('selected');
 
-  const linkBtn = document.getElementById('panel-link');
+  const mediaBox = document.getElementById('panel-media');
+  const promptBox = document.getElementById('panel-prompt');
+  const linkBtn   = document.getElementById('panel-link');
+
   if (view === 'Prompt') {
-    linkBtn.textContent = 'View Prompt';
-    linkBtn.style.opacity = '1';
-    linkBtn.style.pointerEvents = 'auto';
-    linkBtn.onclick = () => window.open(PROMPT_URL, '_blank');
+    mediaBox.style.display  = 'none';
+    promptBox.style.display = 'flex';
+    linkBtn.style.opacity      = '0.3';
+    linkBtn.style.pointerEvents = 'none';
   } else {
+    mediaBox.style.display  = '';
+    promptBox.style.display = 'none';
     linkBtn.textContent = 'Live Link';
     linkBtn.onclick = openLiveLink;
-    linkBtn.style.opacity = currentUrl ? '1' : '0.3';
+    linkBtn.style.opacity      = currentUrl ? '1' : '0.3';
     linkBtn.style.pointerEvents = currentUrl ? 'auto' : 'none';
   }
 }

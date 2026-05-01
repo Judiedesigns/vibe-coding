@@ -844,7 +844,12 @@ body.dark .mobile-theme-icon .icon-moon { display: block; }
 
 /* Mobile */
 @media (max-width: 680px) {
-  html, body           { overflow: auto; height: auto; }
+  html, body {
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: auto;
+    width: 100%;
+  }
 
   .mobile-header       { display: flex; }
 
@@ -852,8 +857,9 @@ body.dark .mobile-theme-icon .icon-moon { display: block; }
     grid-template-columns: 1fr;
     grid-template-rows: auto auto auto;
     height: auto;
-    overflow: visible;
+    overflow: hidden;
     padding-top: 56px;
+    min-width: 0;
   }
 
   .divider-left,
@@ -861,38 +867,43 @@ body.dark .mobile-theme-icon .icon-moon { display: block; }
 
   .sidebar {
     order: 3;
-    padding: 40px 16px 56px;
+    padding: 32px 20px 120px;
     overflow: visible;
+    min-width: 0;
   }
   .sidebar .nav-links  { display: none; }
 
   .center {
     order: 1;
-    padding: 40px 16px 56px;
+    padding: 32px 20px 40px;
     overflow: visible;
     align-items: flex-start;
+    min-width: 0;
   }
-  .cal-label           { font-size: 11px; }
+  .cal-label           { font-size: 11px; white-space: normal; }
   .calendar            { max-width: 100%; }
-  .cal-row             { gap: 6px; }
+  .cal-row             { gap: 5px; }
+  .legend              { max-width: 100%; }
   .legend-label        { font-size: 10px; }
   .legend-other        { display: none; }
 
   .right-panel {
     order: 2;
-    padding: 24px 16px 32px;
+    padding: 24px 20px 40px;
     overflow: visible;
     border-top: 1px dashed var(--border);
+    min-width: 0;
   }
-  .project-image       { height: 240px; min-height: 240px; }
-  .project-desc        { width: 100%; }
+  .project-image       { height: 220px; min-height: 220px; }
+  .project-desc        { width: 100%; max-width: 100%; }
+  .toggle-switch       { align-self: flex-start; }
+  .live-link-btn       { align-self: flex-start; }
 
   .footer {
     position: static;
+    display: block;
     height: auto;
     padding: 0;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
     animation: none;
     transform: none;
   }
@@ -913,26 +924,31 @@ body.dark .mobile-theme-icon .icon-moon { display: block; }
     pointer-events: all;
     width: auto;
     border-radius: 64px;
-    padding: 3px 10px 3px 3px;
+    padding: 5px 10px 5px 3px;
     box-shadow: none;
     background: rgba(235, 235, 239, 0.6);
   }
   .sp-btn              { width: 14px; opacity: 1; }
   .spotify-widget:hover .sp-btn { width: 14px; }
   .spotify-info        { width: 90px; margin-left: 6px; }
-  .sidebar             { padding-bottom: 100px; }
   .footer-right        { display: none; }
-  .name                { font-weight: 500; font-size: 15px; }
-  .title               { font-size: 11px; }
-  .email               { font-size: 11px; }
-  .bio                 { font-size: 10px; }
-  .currently           { font-size: 10px; }
+  .name                { font-weight: 500; font-size: 16px; }
+  .title               { font-size: 12px; }
+  .email               { font-size: 12px; }
+  .bio                 { font-size: 13px; line-height: 22px; }
+  .currently           { font-size: 13px; }
+  .cal-label           { font-size: 12px; white-space: normal; }
+  .legend-label        { font-size: 11px; }
+  .project-title       { font-size: 14px; }
+  .project-desc        { font-size: 13px; line-height: 22px; }
+  .project-meta        { font-size: 12px; }
+  .toggle-btn          { font-size: 12px; }
   .footer-mobile-nav   { display: flex; gap: 0; }
   .footer-mobile-nav .nav-link {
-    font-size: 11px;
+    font-size: 12px;
     display: flex;
     align-items: center;
-    min-height: 40px;
+    min-height: 44px;
     letter-spacing: 0.5px;
     line-height: 1.2;
   }

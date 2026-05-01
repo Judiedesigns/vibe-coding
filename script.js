@@ -159,11 +159,8 @@ function selectDay(num, silent = false) {
     document.getElementById('panel-day').textContent = `DAY ${p.day}`;
     document.getElementById('panel-desc').textContent = p.desc || '';
 
-    // reset to Prototype view
+    // reset toggle to Prototype
     document.querySelectorAll('.toggle-btn').forEach((b, i) => b.classList.toggle('selected', i === 0));
-    document.getElementById('panel-media').style.display = '';
-    document.getElementById('panel-prompt').style.display = 'none';
-    document.getElementById('panel-prompt').textContent = p.prompt || '';
 
     const mediaBox = document.getElementById('panel-media');
     const mediaH = mediaBox ? mediaBox.offsetHeight || 320 : 320;
@@ -258,25 +255,22 @@ function selectProject(key) {
 }
 
 // ── Prototype / Prompt toggle ──────────────────────────────────────────────
+const PROMPT_URL = 'https://v0-ai-build-sprint.vercel.app/';
+
 function toggleView(btn, view) {
   document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('selected'));
   btn.classList.add('selected');
 
-  const mediaBox = document.getElementById('panel-media');
-  const promptBox = document.getElementById('panel-prompt');
-  const linkBtn   = document.getElementById('panel-link');
-
+  const linkBtn = document.getElementById('panel-link');
   if (view === 'Prompt') {
-    mediaBox.style.display  = 'none';
-    promptBox.style.display = 'flex';
-    linkBtn.style.opacity      = '0.3';
-    linkBtn.style.pointerEvents = 'none';
+    linkBtn.textContent = 'View Prompts';
+    linkBtn.style.opacity = '1';
+    linkBtn.style.pointerEvents = 'auto';
+    linkBtn.onclick = () => window.open(PROMPT_URL, '_blank');
   } else {
-    mediaBox.style.display  = '';
-    promptBox.style.display = 'none';
     linkBtn.textContent = 'Live Link';
     linkBtn.onclick = openLiveLink;
-    linkBtn.style.opacity      = currentUrl ? '1' : '0.3';
+    linkBtn.style.opacity = currentUrl ? '1' : '0.3';
     linkBtn.style.pointerEvents = currentUrl ? 'auto' : 'none';
   }
 }

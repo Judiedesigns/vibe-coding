@@ -395,28 +395,6 @@ body.dark .panel-empty-text { color: #555; }
   flex-shrink: 0;
 }
 
-.panel-prompt {
-  width: 100%;
-  height: 320px;
-  min-height: 320px;
-  border-radius: 8px;
-  background: var(--inactive);
-  flex-shrink: 0;
-  padding: 28px 24px;
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Geist Mono', monospace;
-  font-size: 13px;
-  font-weight: 300;
-  line-height: 26px;
-  letter-spacing: -0.3px;
-  color: var(--text);
-  overflow-y: auto;
-  text-align: center;
-}
-
 @keyframes shimmer {
   0%   { background-position: -400px 0; }
   100% { background-position:  400px 0; }
@@ -757,7 +735,6 @@ body.dark .day.inactive                 { background: #222; color: #aaa; }
 body.dark .legend-dot.inactive          { background: #333; }
 body.dark .day.selected-day             { outline-color: #f0f0f0; }
 body.dark .project-image                { background: #1a1a1a; }
-body.dark .panel-prompt                 { background: #1a1a1a; color: #ccc; }
 body.dark .day.extra                    { background: #222; }
 body.dark .legend-dot.extra             { background: #222; border: 1px solid #444; }
 body.dark .mobile-header                { background: #111; }

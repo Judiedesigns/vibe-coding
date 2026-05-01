@@ -265,7 +265,7 @@ body {
 .day.inactive { background: var(--inactive); color: var(--base); }
 .day.active   { background: var(--green); color: #fafafa; }
 .day.empty    { background: var(--inactive); visibility: hidden; }
-.day.extra    { background: var(--green); color: var(--base); overflow: hidden; }
+.day.extra    { background: var(--green); color: var(--base); }
 
 /* Selected day ring */
 .day.selected-day {
@@ -355,6 +355,17 @@ body {
   justify-content: center;
   gap: 24px;
   flex: 1;
+}
+
+.panel-empty-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.panel-empty-icon {
+  color: var(--muted);
+  flex-shrink: 0;
 }
 
 .panel-empty-text {
@@ -461,7 +472,7 @@ body.dark .panel-empty-text { color: #555; }
 }
 
 .live-link-btn {
-  background: #f0f0f0;
+  background: var(--green);
   border: none;
   border-radius: 6px;
   padding: 10px 16px;
@@ -469,7 +480,7 @@ body.dark .panel-empty-text { color: #555; }
   font-family: 'Geist Mono', monospace;
   font-size: 11px;
   font-weight: 300;
-  color: var(--base);
+  color: #fff;
   text-transform: uppercase;
   letter-spacing: 0;
   cursor: pointer;
@@ -478,7 +489,7 @@ body.dark .panel-empty-text { color: #555; }
   overflow: hidden;
 }
 
-.live-link-btn:hover { background: #e0e0e0; }
+.live-link-btn:hover { background: #46c152; }
 
 
 /* ── Footer ─────────────────────────────────── */
@@ -709,8 +720,8 @@ body.dark .footer                       { background: #111; }
 body.dark .toggle-btn                   { color: #f0f0f0; }
 body.dark .toggle-btn.selected          { background: #333; color: #f0f0f0; }
 body.dark .toggle-switch                { background: #222; }
-body.dark .live-link-btn                { background: #222; color: #f0f0f0; }
-body.dark .live-link-btn:hover          { background: #2a2a2a; }
+body.dark .live-link-btn                { background: var(--green); color: #fff; }
+body.dark .live-link-btn:hover          { background: #46c152; }
 body.dark .spotify-widget               { background: #222; }
 body.dark .spotify-widget .sp-btn       { color: #888; }
 body.dark .spotify-widget .sp-btn:hover { color: #f0f0f0; }
@@ -806,6 +817,8 @@ body.dark .mobile-theme-icon .icon-moon { display: block; }
   .center              { padding: 60px 10px 0; }
   .right-panel         { padding: 40px 16px 80px; }
   .cal-label           { white-space: normal; }
+  .calendar            { max-width: 320px; }
+  .legend              { max-width: 320px; }
 }
 
 /* Small tablet */
@@ -819,6 +832,12 @@ body.dark .mobile-theme-icon .icon-moon { display: block; }
   .right-panel         { padding: 32px 12px 80px; }
   .cal-row             { gap: 4px; }
   .cal-label           { white-space: normal; font-size: 11px; }
+  .calendar            { max-width: 280px; }
+  .legend              { max-width: 280px; }
+  .panel-empty-text    { font-size: 11px; }
+  .panel-empty-row     { align-items: flex-start; }
+  .project-title       { font-size: 12px; }
+  .project-image       { height: 200px; min-height: 200px; }
 }
 
 /* Mobile */

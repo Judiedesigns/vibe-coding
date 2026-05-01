@@ -823,21 +823,23 @@ body.dark .mobile-theme-icon .icon-moon { display: block; }
 
 /* Small tablet */
 @media (max-width: 900px) {
-  .page                { grid-template-columns: 220px 1fr 220px; }
-  .footer              { grid-template-columns: 220px 1fr 220px; }
-  .divider-left        { left: 220px; }
-  .divider-right       { right: 220px; }
-  .sidebar             { padding: 32px 16px 80px; gap: 16px; }
+  .page                { grid-template-columns: 180px 1fr 260px; }
+  .footer              { grid-template-columns: 180px 1fr 260px; }
+  .divider-left        { left: 180px; }
+  .divider-right       { right: 260px; }
+  .sidebar             { padding: 32px 12px 80px; gap: 14px; }
   .center              { padding: 60px 8px 0; }
-  .right-panel         { padding: 32px 12px 80px; }
+  .right-panel         { padding: 32px 16px 80px; }
   .cal-row             { gap: 4px; }
   .cal-label           { white-space: normal; font-size: 11px; }
-  .calendar            { max-width: 280px; }
-  .legend              { max-width: 280px; }
+  .calendar            { max-width: 260px; }
+  .legend              { max-width: 260px; }
   .panel-empty-text    { font-size: 11px; }
   .panel-empty-row     { align-items: flex-start; }
   .project-title       { font-size: 12px; }
   .project-image       { height: 200px; min-height: 200px; }
+  .name                { font-size: 13px; }
+  .bio                 { font-size: 10px; }
 }
 
 /* Mobile */
@@ -878,16 +880,12 @@ body.dark .mobile-theme-icon .icon-moon { display: block; }
 
   .right-panel {
     order: 2;
-    margin-left: 16px;
-    padding: 8px 16px 20px 20px;
+    padding: 24px 16px 32px;
     overflow: visible;
-    border-left: 1px dashed var(--border);
-    border-top: none;
+    border-top: 1px dashed var(--border);
   }
-  .project-image       { height: 220px; min-height: 220px; }
+  .project-image       { height: 240px; min-height: 240px; }
   .project-desc        { width: 100%; }
-  .toggle-switch       { width: 100%; }
-  .toggle-btn          { flex: 1; }
 
   .footer {
     position: static;
@@ -895,9 +893,34 @@ body.dark .mobile-theme-icon .icon-moon { display: block; }
     padding: 0;
     grid-template-columns: 1fr;
     grid-template-rows: auto;
+    animation: none;
+    transform: none;
   }
   .footer-nav          { display: none; }
-  .footer-center       { display: flex; justify-content: flex-start; padding: 8px 16px 16px; }
+  .footer-center {
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+    left: auto;
+    z-index: 200;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+    background: transparent;
+    pointer-events: none;
+  }
+  .spotify-widget {
+    pointer-events: all;
+    width: auto;
+    border-radius: 64px;
+    padding: 3px 10px 3px 3px;
+    box-shadow: none;
+    background: rgba(235, 235, 239, 0.6);
+  }
+  .sp-btn              { width: 14px; opacity: 1; }
+  .spotify-widget:hover .sp-btn { width: 14px; }
+  .spotify-info        { width: 90px; margin-left: 6px; }
+  .sidebar             { padding-bottom: 100px; }
   .footer-right        { display: none; }
   .name                { font-weight: 500; font-size: 15px; }
   .title               { font-size: 11px; }

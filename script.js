@@ -14,7 +14,7 @@ const projects = {
   19: { title: 'Dark SaaS Dashboard',                  day: 10, image: 'projects/day-10.mp4', desc: 'Single dashboard view with sidebar, header, metric cards, chart, and data table.',                                                                         url: 'https://nucleus-dashboard-task.vercel.app/' },
   20: { title: 'Waitlist Page',                        day: 11, image: 'projects/day-11.mp4', desc: 'Email capture with live counter of people waiting and confetti on submit.',                                                                                 url: 'https://waitlist-page-task-tprc.vercel.app/' },
   21: { title: 'Testimonial Marquee',                  day: 12, image: 'projects/day-12.mp4', desc: 'Infinite scrolling quote cards, two rows moving in opposite directions.',                                                                                  url: 'https://testimonial-marquee-task12.vercel.app/' },
-  22: { title: 'Context Menu',                         day: 13, image: 'projects/day-13.png', desc: 'Right-click menu with nested items, keyboard support, and positional awareness.',                                                                          url: 'https://context-menu-13.vercel.app/' },
+  22: { title: 'Context Menu',                         day: 13, image: 'projects/day-13.jpg', desc: 'Right-click menu with nested items, keyboard support, and positional awareness.',                                                                          url: 'https://context-menu-13.vercel.app/' },
   24: { title: 'Mobile App Hero',                      day: 14, image: 'projects/day-14.png', desc: 'Hero section with floating phone mockup, ambient glow, and orbiting feature callouts.',                                                                    url: 'https://mobile-app-hero-14.vercel.app/' },
   25: { title: 'Skeleton Loader Set',                  day: 15, image: 'projects/day-15.mp4', desc: '6 content skeletons with shimmer animation.',                                                                                                              url: 'https://skeleton-loader-15.vercel.app/' },
   26: { title: 'Mobile Finance Dashboard',             day: 16, image: 'projects/day-16.mp4', desc: 'Beautiful mobile app showing wallet, spending patterns, and financial health at a glance.',                                                                 url: 'https://mobile-finance-16.vercel.app' },
@@ -130,8 +130,6 @@ function preloadMedia(src) {
     i.src = src;
   }
 }
-// Preload all PNG images immediately (small files, safe to fetch upfront)
-Object.values(projects).forEach(p => { if (p.image && !p.image.endsWith('.mp4')) preloadMedia(p.image); });
 
 // ── Day click → update right panel ────────────────────────────────────────
 document.querySelector('.toggle-switch').style.display = 'none';

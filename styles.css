@@ -735,8 +735,8 @@ body.dark .day.inactive                 { background: #222; color: #aaa; }
 body.dark .legend-dot.inactive          { background: #333; }
 body.dark .day.selected-day             { outline-color: #f0f0f0; }
 body.dark .project-image                { background: #1a1a1a; }
-body.dark .day.extra                    { background: #222; }
-body.dark .legend-dot.extra             { background: #222; border: 1px solid #444; }
+body.dark .day.extra                    { background: #1f3020; }
+body.dark .legend-dot.extra             { background: #1f3020; border: 1px solid #3a5a3a; }
 body.dark .mobile-header                { background: #111; }
 body.dark .mobile-brand                 { color: rgba(240,240,240,0.7); }
 body.dark .mobile-nav-item              { color: rgba(240,240,240,0.7); }

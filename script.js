@@ -27,7 +27,7 @@ const projects = {
 // Add new entries here: e4, e5 ... when ready
 const extraProjects = {
   e1: { num: 6,  title: 'How To Dashboard',  desc: 'A clean, instructional dashboard layout built as a side exploration outside the 20-day challenge.',  image: 'projects/extra1.png',  url: 'https://how-to-dashboard.vercel.app/' },
-  e2: { num: 9,  title: 'Scroll Story',       desc: 'An alternate take on the full-bleed scroll story, experimenting with pacing and scene transitions.', image: 'projects/day-8b.mp4',  url: 'https://v0-scroll-story.vercel.app/' },
+  e2: { num: 9,  title: 'Literature',          desc: 'A digital reading experience for Nigerian literature — browse books, explore authors, and dive into stories.',                       image: 'projects/extra2.mp4',  url: 'https://nigerian-lit.vercel.app/?book=6' },
   e3: { num: 10, title: 'Pulse Dashboard',    desc: 'A variant of the project collaboration tool with a refined layout and updated visual hierarchy.',    image: 'projects/day-18b.mp4', url: 'https://pulse-dashboard-18-silk.vercel.app/' },
 };
 

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#58d164; --base:#2e2e2e; --muted:#888;
+    --subtle:#5c5c5c; --border:#a8b6a8; --bg:#fff; --inactive:#f0f0f0;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:1200px;height:630px}
+  body{
+    background:var(--bg); color:var(--base);
+    font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+    display:grid; grid-template-columns:1fr 1px 470px;
+    position:relative; overflow:hidden;
+  }
+  .rule{background:transparent; border-right:1px dashed var(--border)}
+
+  .col{padding:58px 54px; display:flex; flex-direction:column; justify-content:space-between}
+
+  /* ── left ── */
+  .name{font-size:30px; letter-spacing:.06em; text-transform:uppercase; font-weight:400}
+  .role{font-size:14px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-top:12px}
+
+  .statement{margin:auto 0}
+  .lede{
+    font-size:40px; line-height:1.28; letter-spacing:.02em;
+    text-transform:uppercase; font-weight:400;
+  }
+  .lede em{font-style:normal; color:var(--green)}
+  .sub{
+    font-size:14px; line-height:1.85; letter-spacing:.09em; text-transform:uppercase;
+    color:var(--subtle); margin-top:26px; max-width:470px;
+  }
+
+  .links{display:flex; gap:30px; font-size:13px; letter-spacing:.11em;
+         text-transform:uppercase; color:var(--subtle)}
+  .links span{white-space:nowrap}
+
+  /* ── right: contribution calendar, as on the site ── */
+  .cal-head{font-size:13px; letter-spacing:.06em; color:var(--subtle);
+            text-transform:uppercase; line-height:1.6}
+  .grid{display:grid; grid-template-columns:repeat(7,44px); gap:8px; margin:26px 0 22px}
+  .grid i{
+    width:44px; height:44px; border-radius:7px; background:var(--inactive);
+    display:flex; align-items:center; justify-content:center;
+    font-size:14px; color:var(--subtle); font-style:normal;
+  }
+  .grid i.on{background:var(--green); color:#fafafa}
+  .grid i.pad{background:transparent}
+  .legend{display:flex; align-items:center; font-size:12px; letter-spacing:.09em;
+          text-transform:uppercase; color:var(--subtle); gap:9px}
+  .legend b{width:16px;height:16px;border-radius:4px;background:var(--green);display:inline-block}
+  .legend u{width:16px;height:16px;border-radius:4px;background:var(--inactive);
+            display:inline-block; margin-left:16px}
+  .url{font-size:13px; letter-spacing:.08em; color:var(--muted); text-transform:lowercase}
+</style></head>
+<body>
+  <div class="col">
+    <div>
+      <div class="name">Florence Eze</div>
+      <div class="role">Product Designer / Model Designer</div>
+    </div>
+
+    <div class="statement">
+      <div class="lede">20 days of<br>vibe coding<em>.</em></div>
+      <div class="sub">One build a day — navigation, dashboards,<br>motion, and AI-assisted product work.</div>
+    </div>
+
+    <div class="links">
+      <span>&rarr; Contra</span><span>&rarr; Behance</span><span>&rarr; LinkedIn</span>
+    </div>
+  </div>
+
+  <div class="rule"></div>
+
+  <div class="col">
+    <div class="cal-head">Github contributions<br>from March to April 2026</div>
+    <div>
+      <div class="grid">
+        <i class="pad"></i><i class="pad"></i><i class="pad"></i><i class="pad"></i><i class="pad"></i><i class="pad"></i><i>1</i>
+        <i>2</i><i>3</i><i>4</i><i>5</i><i class="on">6</i><i class="on">7</i><i class="on">8</i>
+        <i class="on">9</i><i class="on">10</i><i>11</i><i>12</i><i class="on">13</i><i class="on">14</i><i class="on">15</i>
+        <i>16</i><i class="on">17</i><i>18</i><i class="on">19</i><i class="on">20</i><i class="on">21</i><i class="on">22</i>
+        <i>23</i><i class="on">24</i><i class="on">25</i><i class="on">26</i><i>27</i><i class="on">28</i><i class="on">29</i>
+        <i>30</i><i class="on">31</i><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i>
+      </div>
+      <div class="legend"><b></b> Active <u></u> No activity</div>
+    </div>
+    <div class="url">vibe-coding.vercel.app</div>
+  </div>
+</body></html>
